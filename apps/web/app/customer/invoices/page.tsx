@@ -88,3 +88,4 @@ export default function CustomerInvoicesPage() {
     </div>
   );
 }
+

@@ -47,7 +47,7 @@ export default function CustomerDashboard() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-2">
             Customer Portal • ID: {user?.customer?.customerCode || 'Registered'}
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
             Welcome back, {user?.customer?.name || 'Customer'}!
           </h1>
           <p className="text-sm text-slate-200 mt-1 max-w-xl">
@@ -214,3 +214,4 @@ export default function CustomerDashboard() {
     </div>
   );
 }
+

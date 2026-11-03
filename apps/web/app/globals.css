@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
 
 :root {
   --color-primary: #102A43;
@@ -107,65 +107,53 @@
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800;
   }
 
-  /* ── Section Layout ───────────────────────────────── */
-  .section-padding {
-    @apply py-20 px-4 md:px-8;
-  }
-
-  .section-narrow {
-    @apply py-16 px-4 md:px-8;
-  }
-
-  .container-max {
-    @apply max-w-7xl mx-auto;
-  }
-
-  /* ── Dashboard Sidebar ────────────────────────────── */
-  .sidebar-item {
-    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-slate-300 
-           hover:bg-[#1a3a57] hover:text-white transition-all duration-150 cursor-pointer;
-  }
-
-  .sidebar-item.active {
-    @apply bg-[#176B9B] text-white;
-  }
-
   /* ── Form Elements ────────────────────────────────── */
   .input-field {
-    @apply w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-[#102A43] 
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-[#102A43] 
            focus:outline-none focus:ring-2 focus:ring-[#176B9B] focus:border-transparent 
-           placeholder:text-slate-400 transition-all duration-150;
+           placeholder:text-slate-400 transition-all duration-150 text-xs sm:text-sm;
   }
 
   /* ── Tables ───────────────────────────────────────── */
   .data-table {
-    @apply w-full text-sm;
+    @apply w-full text-sm text-left border-collapse;
   }
 
   .data-table th {
-    @apply px-4 py-3 text-left text-xs font-semibold text-[#64748B] uppercase tracking-wider 
-           border-b border-slate-200 bg-slate-50;
+    @apply px-4 py-3.5 text-xs font-bold text-slate-500 uppercase tracking-wider 
+           border-b border-slate-200 bg-slate-50 whitespace-nowrap;
   }
 
   .data-table td {
-    @apply px-4 py-4 border-b border-slate-100 text-[#102A43];
+    @apply px-4 py-4 border-b border-slate-100 text-slate-700 align-middle;
   }
 
   .data-table tr:hover td {
-    @apply bg-slate-50;
+    @apply bg-slate-50/80;
   }
 }
 
-/* ── Brand Carousel ─────────────────────────────────── */
+/* ── Brand Carousel Animation ──────────────────────── */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .carousel-track {
-  animation: scroll-left 35s linear infinite;
+  animation: scrollLeft 35s linear infinite;
+  display: flex;
+  width: max-content;
 }
 
 .carousel-track:hover {
   animation-play-state: paused;
 }
 
-/* ── Floating Buttons ──────────────────────────────── */
+/* ── Floating WhatsApp ─────────────────────────────── */
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
@@ -174,35 +162,15 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25D366;
+  background-color: #25D366;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
-
-/* ── Scrollbar ─────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-

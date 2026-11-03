@@ -127,3 +127,4 @@ npm run dev:web
 3. **No Automatic Dispatch on Subscription**: Subscriptions trigger scheduled supply requests that must be confirmed by warehouse staff against actual stock.
 4. **Revenue ≠ Profit**: Delivered billings are strictly accounted as revenue; operational profit is never reported without cost ledger reconciliation.
 5. **Brand Display Integrity**: Only organisations marked as **Approved** in the Brand Management CMS appear on the public homepage.
+

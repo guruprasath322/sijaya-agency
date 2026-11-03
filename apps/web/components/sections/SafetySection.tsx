@@ -70,7 +70,7 @@ export function SafetySection() {
               <PhoneCall className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 className="text-lg font-bold">Smell Gas or Suspect an Active Leak?</h4>
+              <h4 className="text-lg font-bold text-white">Smell Gas or Suspect an Active Leak?</h4>
               <p className="text-sm text-red-100">
                 Evacuate the area, avoid electrical sparks or appliances, and call our emergency support immediately.
               </p>
@@ -88,3 +88,4 @@ export function SafetySection() {
     </section>
   );
 }
+
