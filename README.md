@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SIJAYA GasFlow
 ## Premium LPG Agency Website & Smart Business Management Platform
 
@@ -128,3 +129,6 @@ npm run dev:web
 4. **Revenue ≠ Profit**: Delivered billings are strictly accounted as revenue; operational profit is never reported without cost ledger reconciliation.
 5. **Brand Display Integrity**: Only organisations marked as **Approved** in the Brand Management CMS appear on the public homepage.
 
+=======
+
+>>>>>>> ac676424a11f0b61afd61d4f0f998f716b779469

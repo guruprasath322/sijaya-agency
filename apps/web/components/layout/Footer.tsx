@@ -33,22 +33,22 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <a href="#hero" className="hover:text-amber-400 transition-colors">Home</a>
+                <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-amber-400 transition-colors">About Agency</a>
+                <Link href="/about" className="hover:text-amber-400 transition-colors">About Agency</Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">Gas Services</a>
+                <Link href="/services" className="hover:text-amber-400 transition-colors">Gas Services</Link>
               </li>
               <li>
-                <a href="#business" className="hover:text-amber-400 transition-colors">Business Solutions</a>
+                <Link href="/business-solutions" className="hover:text-amber-400 transition-colors">Business Solutions</Link>
               </li>
               <li>
-                <a href="#products" className="hover:text-amber-400 transition-colors">Cylinder Catalogue</a>
+                <Link href="/products" className="hover:text-amber-400 transition-colors">Cylinder Catalogue</Link>
               </li>
               <li>
-                <a href="#safety" className="hover:text-amber-400 transition-colors">Safety Protocols</a>
+                <Link href="/safety" className="hover:text-amber-400 transition-colors">Safety Protocols</Link>
               </li>
             </ul>
           </div>
@@ -112,8 +112,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} SIJAYA Agencies (SIJAYA GasFlow). All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <a href="#about" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#about" className="hover:text-white transition-colors">Terms & Conditions</a>
+            <Link href="/about" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/about" className="hover:text-white transition-colors">Terms & Conditions</Link>
             <button
               onClick={scrollToTop}
               className="inline-flex items-center gap-1.5 text-amber-400 hover:text-white transition-colors ml-2"

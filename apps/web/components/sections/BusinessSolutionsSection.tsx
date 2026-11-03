@@ -68,7 +68,7 @@ export function BusinessSolutionsSection() {
 
           <div className="flex-shrink-0">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-base shadow-lg transition-all"
             >
               <span>Request a Business Quotation</span>

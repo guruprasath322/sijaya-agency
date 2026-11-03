@@ -16,7 +16,7 @@ export function ProductShowcase() {
       name: 'Domestic LPG 14.2 kg',
       nameTamil: 'உள்நாட்டு எல்பிஜி 14.2 கிலோ',
       unit: 'CYLINDER_14KG',
-      description: 'Standard household cylinder for domestic kitchens. High safety rating with tamper-proof seal.',
+      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 1,
     },
     {
@@ -24,7 +24,7 @@ export function ProductShowcase() {
       name: 'Commercial LPG 19 kg',
       nameTamil: 'வணிக எல்பிஜி 19 கிலோ',
       unit: 'CYLINDER_19KG',
-      description: 'High-performance commercial grade cylinder for restaurants, hotels, messes and catering setups.',
+      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 2,
     },
     {
@@ -32,15 +32,15 @@ export function ProductShowcase() {
       name: 'Compact LPG 5 kg',
       nameTamil: 'சிறிய எல்பிஜி 5 கிலோ',
       unit: 'CYLINDER_5KG',
-      description: 'Convenient portable cylinder for small households, outdoor catering and low-volume requirements.',
+      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 3,
     },
     {
       id: '4',
-      name: 'Bulk LPG Supply (kg)',
+      name: 'Bulk LPG (kg)',
       nameTamil: 'மொத்த எல்பிஜி (கிலோ)',
       unit: 'KG',
-      description: 'High-volume manifold gas supply for industrial heating, boiler plants and institutional complexes.',
+      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 4,
     },
   ];

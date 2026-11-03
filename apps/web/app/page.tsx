@@ -19,53 +19,5 @@ import { Footer } from '@/components/layout/Footer';
 import { FloatingWidgets } from '@/components/layout/FloatingWidgets';
 
 export default function HomePage() {
-  return (
-    <AuthProvider>
-      <div className="min-h-screen flex flex-col bg-background text-[#102A43]">
-        <Navbar />
-
-        <main className="flex-1">
-          {/* 1. Hero Section */}
-          <HeroSection />
-
-          {/* 2. Trust Brand Showcase (Infinite Loop Carousel) */}
-          <BrandShowcase />
-
-          {/* 3. About SIJAYA Agencies */}
-          <AboutSection />
-
-          {/* 4. Core Services (Domestic, Commercial, Bulk) */}
-          <ServicesSection />
-
-          {/* 5. Business Solutions (Hotels, Hostels, Bakeries, Poultry, Mills) */}
-          <BusinessSolutionsSection />
-
-          {/* 6. 4-Step Process */}
-          <HowItWorksSection />
-
-          {/* 7. Why Choose SIJAYA */}
-          <WhyChooseSection />
-
-          {/* 8. Configurable Product Catalogue */}
-          <ProductShowcase />
-
-          {/* 9. Safety Standards & Emergency Precautions */}
-          <SafetySection />
-
-          {/* 10. Customer Testimonials */}
-          <TestimonialsSection />
-
-          {/* 11. FAQ Accordion */}
-          <FAQSection />
-
-          {/* 12. Contact Details & Interactive Form */}
-          <ContactSection />
-        </main>
-
-        <Footer />
-        <FloatingWidgets />
-      </div>
-    </AuthProvider>
-  );
+  return <AuthProvider><div className="min-h-screen flex flex-col bg-white text-[#102A43]"><Navbar /><main className="flex-1"><HeroSection /><BrandShowcase /><AboutSection /><ServicesSection /><BusinessSolutionsSection /><HowItWorksSection /><WhyChooseSection /><ProductShowcase /><SafetySection /><TestimonialsSection /><FAQSection /><ContactSection /></main><Footer /><FloatingWidgets /></div></AuthProvider>;
 }
-

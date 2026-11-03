@@ -20,13 +20,13 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Business Solutions', href: '#business' },
-    { label: 'Products', href: '#products' },
-    { label: 'Safety', href: '#safety' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Business Solutions', href: '/business-solutions' },
+    { label: 'Products', href: '/products' },
+    { label: 'Safety', href: '/safety' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   const getPortalLink = () => {
@@ -55,14 +55,14 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium text-slate-700 hover:text-[#176B9B] transition-colors relative group py-1"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#176B9B] transition-all duration-200 group-hover:w-full" />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -76,13 +76,13 @@ export function Navbar() {
               {user ? (user.customer?.name || user.staff?.name || 'My Portal') : 'Customer Login'}
             </Link>
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-[#176B9B] hover:bg-[#102A43] rounded-lg shadow-sm hover:shadow transition-all"
             >
               <span>Request Gas / Quote</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -110,14 +110,14 @@ export function Navbar() {
         <div className="lg:hidden bg-white border-b border-slate-200 shadow-xl px-4 pt-3 pb-6 animate-in slide-in-from-top-4 duration-200">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-base font-medium text-slate-700 hover:text-[#176B9B] py-2 border-b border-slate-50"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="pt-3 flex flex-col gap-2.5">
               <Link
@@ -128,14 +128,14 @@ export function Navbar() {
                 <User className="w-4 h-4 text-[#176B9B]" />
                 {user ? 'Go to Portal' : 'Customer Portal Login'}
               </Link>
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-semibold text-white bg-[#176B9B] hover:bg-[#102A43] rounded-lg shadow-sm"
               >
                 <PhoneCall className="w-4 h-4" />
                 <span>Request Gas / Get a Quote</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
