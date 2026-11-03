@@ -10,7 +10,7 @@ export default function WebsiteContentCMSPage() {
     'Dependable LPG solutions for homes, businesses and industries — powered by reliable supply and smarter distribution.'
   );
   const [aboutText, setAboutText] = useState(
-    'SIJAYA Agencies is a trusted LPG gas distribution agency supplying domestic, commercial and bulk LPG to homes, businesses and institutions.'
+    'SIJAYA Agency is a trusted LPG gas distribution agency supplying domestic, commercial and bulk LPG to homes, businesses and institutions.'
   );
   const [address, setAddress] = useState('[Business Address — To Be Updated in Settings]');
   const [phone, setPhone] = useState('[Phone Number — To Be Updated]');
@@ -54,11 +54,11 @@ export default function WebsiteContentCMSPage() {
           content: heroDesc,
         }),
         contentApi.update('about', {
-          title: 'About SIJAYA Agencies',
+          title: 'About SIJAYA Agency',
           content: aboutText,
         }),
         contentApi.update('contact', {
-          title: 'Contact SIJAYA',
+          title: 'Contact SIJAYA Agency',
           contentJson: {
             address,
             phone,

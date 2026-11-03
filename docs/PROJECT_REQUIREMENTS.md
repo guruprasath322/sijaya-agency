@@ -1,11 +1,11 @@
-# SIJAYA GasFlow — Project Requirements
+# SIJAYA Agency — Project Requirements
 
 ## Business Context
 
-**Business:** SIJAYA Agencies  
-**Platform:** SIJAYA GasFlow  
+**Business:** SIJAYA Agency  
+**Platform:** SIJAYA Agency  
 **Category:** LPG Gas Agency and Distribution Management  
-**Supplier:** Agispure Gas (no API — manual data entry only)
+**Supplier:** Aegis Pure gas (no API — manual data entry only)
 
 ---
 

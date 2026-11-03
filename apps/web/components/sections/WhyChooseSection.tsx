@@ -13,7 +13,7 @@ export function WhyChooseSection() {
     {
       icon: RefreshCcw,
       title: 'Reliable Supply Coordination',
-      desc: 'Direct dispatch coordination with supplier Agispure Gas maintains stable regional warehouse reserves.',
+      desc: 'Direct coordination with Aegis Pure gas helps maintain dependable warehouse reserves.',
     },
     {
       icon: Clock,
@@ -42,10 +42,10 @@ export function WhyChooseSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/60 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
-            The SIJAYA Standard
+            The SIJAYA Agency Standard
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            Why Homes and Enterprises Choose SIJAYA
+            Why Homes and Enterprises Choose SIJAYA Agency
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Professional operations, certified cylinder safety, and transparent digital account management.

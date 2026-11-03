@@ -1,8 +1,8 @@
 <<<<<<< HEAD
-# SIJAYA GasFlow
+# SIJAYA Agency
 ## Premium LPG Agency Website & Smart Business Management Platform
 
-A production-quality web platform and operational management system designed for **SIJAYA Agencies**, an authorized LPG distribution agency in official collaboration with supplier **Agispure Gas**.
+A production-quality web platform and operational management system for **SIJAYA Agency**, an authorized LPG distribution agency supplied by **Aegis Pure gas**.
 
 ---
 
@@ -12,7 +12,7 @@ A production-quality web platform and operational management system designed for
    - Distinctive corporate branding (#102A43 Navy, #176B9B Corporate Blue, #F59E0B Accent)
    - Sticky responsive navigation with active section tracking
    - Editorial Hero Section with realistic SVG LPG cylinder rendering and trust metrics
-   - Continuous horizontal sliding brand showcase ("Businesses That Trust SIJAYA") with bilingual English/Tamil typography, pause-on-hover, and database approval filter
+   - Continuous horizontal sliding brand showcase ("Businesses That Trust SIJAYA Agency") with bilingual English/Tamil typography, pause-on-hover, and database approval filter
    - Comprehensive services sections for Domestic (14.2 kg, 5 kg), Commercial (19 kg), and Bulk LPG supply
    - Commercial continuity showcase for Hotels, Messes, Bakeries, Poultry, Hostels, and Industrial Mills
    - 4-step structured fulfillment workflow (Request → Confirm → Schedule → Deliver)
@@ -39,7 +39,7 @@ A production-quality web platform and operational management system designed for
    - Warehouse stock summary cards with available, reserved, and quarantined damaged counts
    - Delivered revenue chart and domestic vs. commercial distribution pie chart
    - Full order management ledger with status transitions and driver dispatch assignments
-   - **Supplier Load Intake**: Record Agispure Gas truck manifests, arrival counts, damaged tallies, and manager approval lock (inventory only updates upon approval)
+   - **Supplier Load Intake**: Record Aegis Pure gas truck manifests, arrival counts, damaged tallies, and manager approval lock (inventory only updates upon approval)
    - **Inventory Ledger**: Stock reserves, low stock alerts, manual adjustments with audit reason recording, and immutable stock movement ledger
    - **Physical Cylinder Tracking**: Serial number registry, tare weights, client assignments, and valve inspections
    - **Customer & Credit Database**: Customer types (Domestic, Commercial, Bulk, Institutional) with credit limit enforcement
@@ -123,7 +123,7 @@ npm run dev:web
 
 ## ⚖️ Business Rules Enforced
 
-1. **Inventory Locking**: Incoming gas loads from Agispure Gas do not increment warehouse available stock until an authorized Manager inspects discrepancies and explicitly clicks **Approve to Stock**.
+1. **Inventory Locking**: Incoming gas loads from Aegis Pure gas do not increment warehouse available stock until an authorized Manager inspects discrepancies and explicitly clicks **Approve to Stock**.
 2. **Negative Stock Prevention**: Stock adjustments that would drop warehouse reserves below zero are rejected at the database transaction layer.
 3. **No Automatic Dispatch on Subscription**: Subscriptions trigger scheduled supply requests that must be confirmed by warehouse staff against actual stock.
 4. **Revenue ≠ Profit**: Delivered billings are strictly accounted as revenue; operational profit is never reported without cost ledger reconciliation.

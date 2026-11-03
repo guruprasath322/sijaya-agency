@@ -3,13 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Logo } from '@/components/shared/Logo';
-import { Menu, X, ArrowRight, User, PhoneCall } from 'lucide-react';
-import { useAuth } from '@/components/shared/AuthContext';
+import { Menu, X, ArrowRight, PhoneCall } from 'lucide-react';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,14 +26,6 @@ export function Navbar() {
     { label: 'Safety', href: '/safety' },
     { label: 'Contact', href: '/contact' },
   ];
-
-  const getPortalLink = () => {
-    if (!user) return '/login';
-    if (user.role === 'ADMIN' || user.role === 'MANAGER') return '/dashboard';
-    if (user.role === 'DRIVER') return '/driver';
-    if (user.role === 'STAFF') return '/staff';
-    return '/customer';
-  };
 
   return (
     <header
@@ -69,14 +59,6 @@ export function Navbar() {
           {/* Desktop Right CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href={getPortalLink()}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#102A43] hover:text-[#176B9B] hover:bg-slate-50 rounded-lg transition-colors border border-slate-200"
-            >
-              <User className="w-4 h-4 text-[#176B9B]" />
-              {user ? (user.customer?.name || user.staff?.name || 'My Portal') : 'Customer Login'}
-            </Link>
-
-            <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-[#176B9B] hover:bg-[#102A43] rounded-lg shadow-sm hover:shadow transition-all"
             >
@@ -87,13 +69,6 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
-            <Link
-              href={getPortalLink()}
-              className="p-2 text-[#102A43] hover:bg-slate-100 rounded-lg"
-              title="Portal Login"
-            >
-              <User className="w-5 h-5 text-[#176B9B]" />
-            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-slate-700 hover:text-[#102A43] hover:bg-slate-100 rounded-lg focus:outline-none"
@@ -120,14 +95,6 @@ export function Navbar() {
               </Link>
             ))}
             <div className="pt-3 flex flex-col gap-2.5">
-              <Link
-                href={getPortalLink()}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-semibold text-[#102A43] bg-slate-100 hover:bg-slate-200 rounded-lg"
-              >
-                <User className="w-4 h-4 text-[#176B9B]" />
-                {user ? 'Go to Portal' : 'Customer Portal Login'}
-              </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}

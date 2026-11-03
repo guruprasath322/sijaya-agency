@@ -28,7 +28,7 @@ export function FAQSection() {
       a: 'Once your order is confirmed, log in to your customer portal. You will see real-time status updates: Pending, Confirmed, Scheduled, Out for Delivery, or Delivered.',
     },
     {
-      q: 'How do I contact SIJAYA Agencies?',
+      q: 'How do I contact SIJAYA Agency?',
       a: 'Reach us via our official office phone, send an instant message on WhatsApp, use the contact form below, or visit our local distribution warehouse during working hours.',
     },
   ];

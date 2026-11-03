@@ -21,7 +21,7 @@ export function ServicesSection() {
         'Emergency response guidance',
       ],
       ctaText: 'Book Domestic Cylinder',
-      ctaHref: '/customer/book',
+      ctaHref: '/contact',
       accentColor: 'border-blue-500',
     },
     {
@@ -39,7 +39,7 @@ export function ServicesSection() {
         'Multi-cylinder batch deliveries',
       ],
       ctaText: 'Commercial Account Booking',
-      ctaHref: '/customer/commercial',
+      ctaHref: '/contact',
       accentColor: 'border-amber-500',
       popular: true,
     },
@@ -74,7 +74,7 @@ export function ServicesSection() {
             Comprehensive Gas Solutions for Every Requirement
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            From single domestic cylinder refills to synchronized bulk commercial supplies, SIJAYA provides dependability and transparent service.
+            From single domestic cylinder refills to synchronized bulk commercial supplies, SIJAYA Agency provides dependability and transparent service.
           </p>
         </div>
 

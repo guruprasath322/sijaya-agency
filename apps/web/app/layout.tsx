@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
+import { PageMotion } from '@/components/shared/PageMotion';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'SIJAYA GasFlow — Reliable LPG Supply & Distribution',
-    template: '%s | SIJAYA GasFlow',
+    default: 'SIJAYA Agency — Reliable LPG Supply & Distribution',
+    template: '%s | SIJAYA Agency',
   },
   description:
-    'SIJAYA Agencies provides reliable LPG gas supply for homes, businesses and industries. Domestic, commercial and bulk LPG distribution.',
-  keywords: ['LPG', 'gas agency', 'cylinder', 'SIJAYA', 'Agispure', 'commercial gas', 'bulk LPG'],
+    'SIJAYA Agency provides reliable LPG gas supply for homes, businesses and industries. Domestic, commercial and bulk LPG distribution.',
+  keywords: ['LPG', 'gas agency', 'cylinder', 'SIJAYA Agency', 'commercial gas', 'bulk LPG'],
   openGraph: {
-    title: 'SIJAYA GasFlow',
+    title: 'SIJAYA Agency',
     description: 'Reliable Gas Supply. Smarter Business.',
     type: 'website',
   },
@@ -32,7 +33,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background antialiased">
-        {children}
+        <PageMotion>{children}</PageMotion>
       </body>
     </html>
   );

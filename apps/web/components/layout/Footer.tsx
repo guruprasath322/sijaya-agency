@@ -18,7 +18,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Logo variant="light" size="lg" />
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm mt-3">
-              SIJAYA Agencies — Authorized LPG distributor in official collaboration with Agispure Gas. Supplying reliable energy solutions for domestic homes, commercial kitchens, institutions and industrial enterprises.
+              SIJAYA Agency supplies reliable LPG for homes, commercial kitchens, institutions and industrial enterprises.
             </p>
             <div className="flex items-center gap-2 pt-2 text-xs text-amber-400 font-semibold">
               <ShieldCheck className="w-4 h-4" />
@@ -53,29 +53,14 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Portals & Services */}
+          {/* Supply Request */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
-              Portals & Supply
+              LPG Supply
             </h4>
             <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <Link href="/customer" className="hover:text-amber-400 transition-colors">Customer Portal</Link>
-              </li>
-              <li>
-                <Link href="/login" className="hover:text-amber-400 transition-colors">Portal Login</Link>
-              </li>
-              <li>
-                <Link href="/customer/book" className="hover:text-amber-400 transition-colors">Book Domestic Cylinder</Link>
-              </li>
-              <li>
-                <Link href="/customer/commercial" className="hover:text-amber-400 transition-colors">Commercial Quotations</Link>
-              </li>
-              <li>
-                <Link href="/dashboard" className="hover:text-amber-400 transition-colors">Manager Dashboard</Link>
-              </li>
-              <li>
-                <Link href="/driver" className="hover:text-amber-400 transition-colors">Driver Dispatch App</Link>
+                <Link href="/contact" className="hover:text-amber-400 transition-colors">Request Gas Supply or Quotation</Link>
               </li>
             </ul>
           </div>
@@ -88,7 +73,7 @@ export function Footer() {
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="hover:text-white">SIJAYA Agencies · Office & Depot</a>
+                <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="hover:text-white">SIJAYA Agency · Office & Depot</a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
@@ -109,7 +94,7 @@ export function Footer() {
         {/* Bottom Legal Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            &copy; {new Date().getFullYear()} SIJAYA Agencies (SIJAYA GasFlow). All rights reserved.
+            &copy; {new Date().getFullYear()} SIJAYA Agency. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <Link href="/about" className="hover:text-white transition-colors">Privacy Policy</Link>

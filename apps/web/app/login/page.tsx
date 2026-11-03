@@ -21,6 +21,11 @@ export default function LoginPage() {
 
     try {
       const res = await authApi.login(email, password);
+      if (res.role === 'CUSTOMER') {
+        await authApi.logout();
+        setError('Customer sign-in is unavailable. Please use the gas supply request form instead.');
+        return;
+      }
       // Route based on role
       if (res.role === 'ADMIN' || res.role === 'MANAGER') {
         router.push('/dashboard');
@@ -48,7 +53,6 @@ export default function LoginPage() {
     setPassword('Admin@123456');
     if (roleEmail === 'manager@sijaya.in') setPassword('Manager@123456');
     if (roleEmail === 'driver@sijaya.in') setPassword('Driver@123456');
-    if (roleEmail === 'customer@sijaya.in') setPassword('Customer@123456');
     setError(null);
   };
 
@@ -59,10 +63,10 @@ export default function LoginPage() {
           <Logo size="lg" />
         </Link>
         <h2 className="text-2xl font-black text-[#102A43] tracking-tight">
-          Sign In to SIJAYA GasFlow
+          Sign In to SIJAYA Agency
         </h2>
         <p className="mt-1 text-sm text-slate-500">
-          Access your LPG customer portal, operations, or driver dispatch
+          Staff operations and driver dispatch sign-in
         </p>
       </div>
 
@@ -149,13 +153,6 @@ export default function LoginPage() {
               </button>
               <button
                 type="button"
-                onClick={() => setDemoRole('customer@sijaya.in')}
-                className="p-2 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-200 text-left font-medium text-slate-700 hover:text-[#176B9B] transition-colors"
-              >
-                🏠 Customer
-              </button>
-              <button
-                type="button"
                 onClick={() => setDemoRole('driver@sijaya.in')}
                 className="p-2 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-200 text-left font-medium text-slate-700 hover:text-[#176B9B] transition-colors"
               >
@@ -164,12 +161,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <div className="mt-6 text-center text-xs text-slate-500">
-            New customer?{' '}
-            <Link href="/register" className="font-bold text-[#176B9B] hover:underline">
-              Create a Customer Account
-            </Link>
-          </div>
         </div>
       </div>
     </div>

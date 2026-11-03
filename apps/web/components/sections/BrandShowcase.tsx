@@ -1,8 +1,22 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { brandsApi, Brand } from '@/lib/api';
 import { Building2, Sparkles } from 'lucide-react';
+
+const brandLogos = [
+  { match: (name: string) => name.toLowerCase().includes('ebet'), src: '/brands/ebet-college.png' },
+  { match: (name: string) => name.toLowerCase().includes('kuppanna'), src: '/brands/kuppanna-poultry.png' },
+  { match: (name: string) => /kann?ika/i.test(name), src: '/brands/kanika-bakery.png' },
+  { match: (name: string) => /s\.?r\.?\s*(bakery|beauty)/i.test(name), src: '/brands/sr-bakery.jpeg' },
+  { match: (name: string) => /salem\s*r\.?r/i.test(name), src: '/brands/salem-rr-biriyani.jpeg' },
+];
+
+function addMatchingLogo(brand: Brand): Brand {
+  const matchedLogo = brandLogos.find(({ match }) => match(brand.nameEnglish))?.src;
+  return { ...brand, logoUrl: brand.logoUrl || matchedLogo };
+}
 
 export function BrandShowcase() {
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -10,12 +24,12 @@ export function BrandShowcase() {
 
   // Fallback verified/preliminary list from supplied agency records
   const defaultBrands: Partial<Brand>[] = [
-    { id: '1', nameEnglish: 'EBET College', category: 'Education', displayOrder: 1 },
-    { id: '2', nameEnglish: 'Kuppanna Poultry', category: 'Poultry & Farm', displayOrder: 2 },
-    { id: '3', nameEnglish: 'Kannika Beauty', category: 'Commercial Enterprise', displayOrder: 3 },
-    { id: '4', nameEnglish: 'S.R. Beauty – Ottanchathiram', category: 'Commercial', displayOrder: 4 },
-    { id: '5', nameEnglish: 'Bhavani Amman Mess – Anumanthalli', category: 'Restaurant & Mess', displayOrder: 5 },
-    { id: '6', nameEnglish: 'Winsome Hostel – Palani', category: 'Institutional Hostel', displayOrder: 6 },
+    { id: '1', nameEnglish: 'EBET College', category: 'Education', logoUrl: '/brands/ebet-college.png', displayOrder: 1 },
+    { id: '2', nameEnglish: 'Kuppanna Poultry', category: 'Poultry & Farm', logoUrl: '/brands/kuppanna-poultry.png', displayOrder: 2 },
+    { id: '3', nameEnglish: 'Kannika Bakery', category: 'Bakery', logoUrl: '/brands/kanika-bakery.png', displayOrder: 3 },
+    { id: '4', nameEnglish: 'S.R. Bakery – Ottanchathiram', category: 'Bakery', logoUrl: '/brands/sr-bakery.jpeg', displayOrder: 4 },
+    { id: '5', nameEnglish: 'Salem R.R Biriyani', category: 'Restaurant', logoUrl: '/brands/salem-rr-biriyani.jpeg', displayOrder: 5 },
+    { id: '6', nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', displayOrder: 6 },
     { id: '7', nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', displayOrder: 7 },
     { id: '8', nameEnglish: 'Arunmigu Mill', nameTamil: 'அருண்மிகு மில்', category: 'Commercial Mill', displayOrder: 8 },
   ];
@@ -25,14 +39,14 @@ export function BrandShowcase() {
       .getPublic()
       .then((data) => {
         if (data && data.length > 0) {
-          setBrands(data);
+          setBrands(data.map(addMatchingLogo));
         } else {
           // If manager hasn't yet toggled approved flag in fresh db, use verified reference records
-          setBrands(defaultBrands as Brand[]);
+          setBrands((defaultBrands as Brand[]).map(addMatchingLogo));
         }
       })
       .catch(() => {
-        setBrands(defaultBrands as Brand[]);
+        setBrands((defaultBrands as Brand[]).map(addMatchingLogo));
       })
       .finally(() => setLoading(false));
   }, []);
@@ -48,7 +62,7 @@ export function BrandShowcase() {
           Commercial & Institutional Relationships
         </div>
         <h2 className="text-2xl sm:text-3xl font-bold text-[#102A43] tracking-tight">
-          Businesses That Trust SIJAYA
+          Businesses That Trust SIJAYA Agency
         </h2>
         <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto mt-2">
           Building dependable supply relationships with businesses, educational institutions and commercial customers across the region.
@@ -68,9 +82,13 @@ export function BrandShowcase() {
               key={`${brand.id}-${index}`}
               className="flex items-center gap-3.5 px-6 py-4 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 hover:border-[#176B9B]/40 group/card select-none"
             >
-              {/* Premium Brand Badge Icon */}
-              <div className="w-10 h-10 rounded-lg bg-slate-100 group-hover/card:bg-blue-50 flex items-center justify-center text-slate-500 group-hover/card:text-[#176B9B] transition-colors flex-shrink-0">
-                <Building2 className="w-5 h-5" />
+              {/* Brand Logo or neutral fallback icon */}
+              <div className="w-12 h-12 rounded-lg bg-white border border-slate-100 flex items-center justify-center overflow-hidden flex-shrink-0">
+                {brand.logoUrl ? (
+                  <Image src={brand.logoUrl} alt={`${brand.nameEnglish} logo`} width={48} height={48} className="h-full w-full object-contain" />
+                ) : (
+                  <Building2 className="w-5 h-5 text-slate-500" />
+                )}
               </div>
 
               {/* Brand Typography (Bilingual Support: English & Tamil) */}
@@ -98,7 +116,7 @@ export function BrandShowcase() {
 
       <div className="text-center mt-6">
         <p className="text-xs text-slate-400">
-          * Verified business delivery accounts. Managed and updated directly through the SIJAYA administrative platform.
+          * Verified business delivery accounts. Managed and updated directly through the SIJAYA Agency administrative platform.
         </p>
       </div>
     </section>

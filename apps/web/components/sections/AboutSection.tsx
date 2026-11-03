@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { ShieldCheck, Truck, Clock, Layers, Users, Award } from 'lucide-react';
 
 export function AboutSection() {
@@ -34,7 +35,7 @@ export function AboutSection() {
           {/* Left Column: Story & Mission */}
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-[#176B9B] text-xs font-semibold uppercase tracking-wider">
-              About SIJAYA Agencies
+              About SIJAYA Agency
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight leading-tight">
@@ -42,11 +43,11 @@ export function AboutSection() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              SIJAYA Agencies is an authorized LPG distribution agency dedicated to providing safe, high-purity, and timely gas solutions. In partnership with Agispure Gas, we manage the complete delivery lifecycle from bulk supplier intake to domestic doorstep refills and large-scale industrial kitchens.
+              SIJAYA Agency supplies safe, high-purity LPG reliably to households, commercial kitchens and industries, with supply from Aegis Pure gas.
             </p>
 
             <p className="text-base text-slate-600 leading-relaxed">
-              We understand that for a restaurant, bakery, hostel, or home, uninterrupted gas supply is essential. That is why our modern operational system — SIJAYA GasFlow — tracks stock levels, enforces delivery schedules, and transparently records every transaction.
+              We understand that an uninterrupted gas supply is essential for every home and business. Our operations track stock levels, coordinate supply schedules and record transactions transparently.
             </p>
 
             {/* Metrics Mini-Grid */}
@@ -56,8 +57,8 @@ export function AboutSection() {
                 <div className="text-xs text-slate-500 font-medium mt-1">Cylinder Inspection</div>
               </div>
               <div className="p-3 bg-slate-50 rounded-xl">
-                <div className="text-2xl font-black text-[#F59E0B]">Agispure</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Purity Assured</div>
+                <Image src="/aegis-puregas.png" alt="Aegis Puregas logo" width={120} height={78} className="h-[78px] w-full max-w-[120px] object-contain mix-blend-multiply" />
+                <div className="text-xs text-slate-500 font-medium mt-1">Supply Partner</div>
               </div>
               <div className="p-3 bg-slate-50 rounded-xl">
                 <div className="text-2xl font-black text-[#102A43]">24/7</div>

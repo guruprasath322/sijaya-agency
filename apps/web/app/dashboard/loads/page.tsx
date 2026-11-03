@@ -44,7 +44,7 @@ export default function IncomingLoadsPage() {
   const handleCreateLoad = async (e: React.FormEvent) => {
     e.preventDefault();
     await loadsApi.create({
-      supplierId: '00000000-0000-0000-0000-000000000001', // Agispure Gas
+      supplierId: '00000000-0000-0000-0000-000000000001', // Aegis Pure gas
       vehicleNumber,
       invoiceReference: invoiceRef,
       items: [{ productId: selectedProduct, expectedQty: Number(expectedQty) }],
@@ -90,7 +90,7 @@ export default function IncomingLoadsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Supplier Gas Loads (Agispure Gas)</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Supplier Gas Loads (Aegis Pure gas)</h1>
           <p className="text-xs text-slate-500 mt-0.5">Manage intake manifests, arrival tally inspection, and manager ledger approvals</p>
         </div>
 
@@ -126,7 +126,7 @@ export default function IncomingLoadsPage() {
           <div className="py-16 text-center text-slate-400 text-xs">Loading load manifests...</div>
         ) : loads.length === 0 ? (
           <div className="py-16 text-center text-slate-400 text-xs">
-            No gas load records found. Record a new Agispure Gas dispatch using the button above.
+            No gas load records found. Record a new Aegis Pure gas dispatch using the button above.
           </div>
         ) : (
           <div className="overflow-x-auto">
@@ -148,7 +148,7 @@ export default function IncomingLoadsPage() {
                   return (
                     <tr key={load.id}>
                       <td className="font-mono text-xs font-bold text-[#102A43]">{load.loadCode}</td>
-                      <td className="text-xs font-semibold text-slate-800">{load.supplier?.name || 'Agispure Gas'}</td>
+                      <td className="text-xs font-semibold text-slate-800">Aegis Pure gas</td>
                       <td className="font-mono text-xs text-slate-600">{load.vehicleNumber || 'Unassigned'}</td>
                       <td className="text-xs font-bold text-slate-800">
                         {item ? `${item.expectedQty} (${item.product?.name})` : '-'}
@@ -224,7 +224,7 @@ export default function IncomingLoadsPage() {
       {newLoadOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
-            <h3 className="text-lg font-bold text-[#102A43] mb-1">Record Agispure Gas Dispatch</h3>
+            <h3 className="text-lg font-bold text-[#102A43] mb-1">Record Aegis Pure gas Dispatch</h3>
             <p className="text-xs text-slate-500 mb-4">
               Enter incoming truck invoice manifest details prior to warehouse arrival.
             </p>
@@ -235,7 +235,7 @@ export default function IncomingLoadsPage() {
                 <input
                   type="text"
                   disabled
-                  value="Agispure Gas (Authorised Supplier)"
+                  value="Aegis Pure gas (Authorised Supplier)"
                   className="input-field bg-slate-100 text-xs cursor-not-allowed"
                 />
               </div>

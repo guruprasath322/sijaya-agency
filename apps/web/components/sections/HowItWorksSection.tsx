@@ -15,7 +15,7 @@ export function HowItWorksSection() {
       number: '02',
       icon: CheckCircle,
       title: 'Stock Verification',
-      description: 'SIJAYA agency staff verifies warehouse inventory, confirms pricing, and approves your order.',
+      description: 'SIJAYA Agency staff verifies warehouse inventory, confirms pricing, and approves your order.',
     },
     {
       number: '03',
@@ -39,7 +39,7 @@ export function HowItWorksSection() {
             Simple 4-Step Process
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            How Gas Distribution Works at SIJAYA
+            How Gas Distribution Works at SIJAYA Agency
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             A transparent and structured fulfillment workflow ensuring safety, accountability, and on-time cylinder replacement.

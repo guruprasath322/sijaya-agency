@@ -7,7 +7,7 @@ const client_1 = require("@prisma/client");
 const argon2_1 = __importDefault(require("argon2"));
 const prisma = new client_1.PrismaClient();
 async function main() {
-    console.log('🌱 Seeding SIJAYA GasFlow database...\n');
+    console.log('🌱 Seeding SIJAYA Agency database...\n');
     // ── Admin user ─────────────────────────────────────────────
     const adminHash = await argon2_1.default.hash('Admin@123456');
     const admin = await prisma.user.upsert({
@@ -20,7 +20,7 @@ async function main() {
             staff: {
                 create: {
                     employeeCode: 'EMP-ADMIN-001',
-                    name: 'SIJAYA Administrator',
+                    name: 'SIJAYA Agency Administrator',
                     phone: '[PHONE-PLACEHOLDER]',
                     role: 'ADMIN',
                 },
@@ -40,7 +40,7 @@ async function main() {
             staff: {
                 create: {
                     employeeCode: 'EMP-MGR-001',
-                    name: 'SIJAYA Manager',
+                    name: 'SIJAYA Agency Manager',
                     phone: '[PHONE-PLACEHOLDER]',
                     role: 'MANAGER',
                 },
@@ -102,11 +102,11 @@ async function main() {
     // ── Supplier ────────────────────────────────────────────────
     const supplier = await prisma.supplier.upsert({
         where: { id: '00000000-0000-0000-0000-000000000001' },
-        update: {},
+        update: { name: 'Aegis Pure gas' },
         create: {
             id: '00000000-0000-0000-0000-000000000001',
-            name: 'Agispure Gas',
-            notes: 'Primary LPG supplier',
+            name: 'Aegis Pure gas',
+            notes: 'Primary LPG supplier for SIJAYA Agency',
         },
     });
     console.log(`✔ Supplier: ${supplier.name}`);
@@ -128,13 +128,13 @@ async function main() {
     // ── Initial brand entries (unverified — manager must approve before display) ──
     const brands = [
         { nameEnglish: 'EBET College', category: 'Education', isApproved: false },
-        { nameEnglish: 'Kuppanna Poultry', category: 'Commercial', isApproved: false },
-        { nameEnglish: 'Kannika Beauty', category: 'Commercial', isApproved: false },
-        { nameEnglish: 'S.R. Beauty – Ottanchathiram', category: 'Commercial', isApproved: false },
-        { nameEnglish: 'Bhavani Amman Mess – Anumanthalli', category: 'Restaurant', isApproved: false },
-        { nameEnglish: 'Winsome Hostel – Palani', category: 'Institutional', isApproved: false },
-        { nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial', isApproved: false },
-        { nameEnglish: 'Arunmigu Mill', nameTamil: 'அருண்மிகு மில்', category: 'Commercial', isApproved: false },
+        { nameEnglish: 'Kuppanna Poultry', category: 'Poultry & Farm', isApproved: false },
+        { nameEnglish: 'Kannika Bakery', category: 'Bakery', isApproved: false },
+        { nameEnglish: 'S.R. Bakery – Ottanchathiram', category: 'Bakery', isApproved: false },
+        { nameEnglish: 'Salem R.R Biriyani', category: 'Restaurant', isApproved: false },
+        { nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', isApproved: false },
+        { nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', isApproved: false },
+        { nameEnglish: 'Arunmigu Mill', nameTamil: 'அருண்மிகு மில்', category: 'Commercial Mill', isApproved: false },
     ];
     for (const [i, brand] of brands.entries()) {
         const existing = await prisma.brand.findFirst({ where: { nameEnglish: brand.nameEnglish } });
@@ -153,12 +153,12 @@ async function main() {
         },
         {
             key: 'about',
-            title: 'About SIJAYA Agencies',
-            content: 'SIJAYA Agencies is a trusted LPG gas distribution agency supplying domestic, commercial and bulk LPG to homes, businesses and institutions. We are committed to reliable delivery, transparent service and customer satisfaction.',
+            title: 'About SIJAYA Agency',
+            content: 'SIJAYA Agency is a trusted LPG gas distribution agency supplying domestic, commercial and bulk LPG to homes, businesses and institutions. We are committed to reliable delivery, transparent service and customer satisfaction.',
         },
         {
             key: 'contact',
-            title: 'Contact SIJAYA',
+            title: 'Contact SIJAYA Agency',
             contentJson: {
                 address: '[Business Address — To Be Updated]',
                 phone: '[Phone Number — To Be Updated]',
@@ -176,7 +176,7 @@ async function main() {
                 { q: 'Can hotels request recurring supply?', a: 'Yes. We offer recurring supply arrangements for commercial customers. Contact us to discuss your requirements.' },
                 { q: 'How can I request bulk LPG?', a: 'Use the "Request Bulk Supply" form or contact us directly with your quantity requirements and location.' },
                 { q: 'How can I track my order?', a: 'You can track your order status through the customer portal after logging in.' },
-                { q: 'How do I contact SIJAYA?', a: 'You can reach us by phone, email, WhatsApp or through the contact form on this website.' },
+                { q: 'How do I contact SIJAYA Agency?', a: 'You can reach us by phone, email, WhatsApp or through the contact form on this website.' },
             ],
         },
     ];

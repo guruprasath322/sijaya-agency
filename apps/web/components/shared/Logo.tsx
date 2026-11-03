@@ -12,8 +12,8 @@ export function Logo({ className = '', variant = 'dark', size = 'md' }: LogoProp
   const textSize = { sm: 'text-base', md: 'text-lg', lg: 'text-xl' };
   return (
     <div className={`inline-flex items-center gap-2.5 font-bold tracking-tight select-none ${className}`}>
-      <Image src="/logo-s.png" alt="SIJAYA monogram" width={dimensions[size]} height={dimensions[size]} className="object-contain" />
-      <span className={`font-black tracking-[0.16em] ${textSize[size]} ${variant === 'light' ? 'text-white' : 'text-[#102A43]'}`}>SIJAYA</span>
+      <Image src="/logo-s.png" alt="SIJAYA Agency monogram" width={dimensions[size]} height={dimensions[size]} className="object-contain" />
+      <span className={`font-black tracking-[0.16em] ${textSize[size]} ${variant === 'light' ? 'text-white' : 'text-[#102A43]'}`}>SIJAYA Agency</span>
     </div>
   );
 }

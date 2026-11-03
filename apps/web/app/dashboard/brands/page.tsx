@@ -99,7 +99,7 @@ export default function BrandManagementPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Homepage Brand Showcase Management</h1>
-          <p className="text-xs text-slate-500 mt-0.5">Control the public &ldquo;Businesses That Trust SIJAYA&rdquo; continuous carousel</p>
+          <p className="text-xs text-slate-500 mt-0.5">Control the public &ldquo;Businesses That Trust SIJAYA Agency&rdquo; continuous carousel</p>
         </div>
 
         <div className="flex items-center gap-2">

@@ -11,7 +11,7 @@ export default function AnalyticsReportsPage() {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', 'sijaya_gasflow_report.csv');
+    link.setAttribute('download', 'aegis_puregas_report.csv');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

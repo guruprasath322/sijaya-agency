@@ -72,7 +72,7 @@ export function ProductShowcase() {
             Certified LPG Cylinders & Bulk Energy
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            Supplied in partnership with Agispure Gas. Available for instant booking or scheduled batch deliveries.
+            Supplied by Aegis Pure gas for instant booking or scheduled supply.
           </p>
         </div>
 
@@ -124,11 +124,11 @@ export function ProductShowcase() {
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                     Weight Verified
                   </span>
-                  <span>Agispure Supply</span>
+                  <span>Aegis Pure gas Supply</span>
                 </div>
 
                 <Link
-                  href="/customer/book"
+                  href="/contact"
                   className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-lg text-xs font-bold text-[#102A43] bg-white hover:bg-[#176B9B] hover:text-white border border-slate-200 hover:border-[#176B9B] transition-all shadow-sm"
                 >
                   <span>Order / Request Supply</span>
@@ -140,7 +140,7 @@ export function ProductShowcase() {
         </div>
 
         <div className="mt-8 text-center bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 max-w-2xl mx-auto">
-          Notice: LPG cylinder pricing and tariff rates are regulated and updated periodically in the administrative database based on official Agispure Gas supplier circulars and applicable GST rates.
+          Notice: LPG cylinder pricing and tariff rates are regulated and updated periodically in the administrative database based on official Aegis Pure gas supplier circulars and applicable GST rates.
         </div>
       </div>
     </section>

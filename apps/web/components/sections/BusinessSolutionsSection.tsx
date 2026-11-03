@@ -28,7 +28,7 @@ export function BusinessSolutionsSection() {
             Engineered for Commercial Continuity
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Never halt your ovens, stoves or brooders. SIJAYA designs customized recurring gas supply arrangements for institutions and commercial enterprises.
+            Never halt your ovens, stoves or brooders. SIJAYA Agency designs customized recurring gas supply arrangements for institutions and commercial enterprises.
           </p>
         </div>
 

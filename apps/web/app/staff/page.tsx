@@ -83,7 +83,7 @@ function StaffPortalInner() {
             </div>
             <h3 className="text-base font-bold text-[#102A43]">Record Incoming Loads</h3>
             <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              Log Agispure Gas truck manifests and record physical arrival tallies.
+              Log Aegis Pure gas truck manifests and record physical arrival tallies.
             </p>
           </Link>
 
@@ -119,7 +119,7 @@ function StaffPortalInner() {
           <AlertCircle className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
           <div className="text-xs text-slate-600 leading-relaxed">
             <strong className="text-slate-900 block text-sm mb-1">Standard Warehouse Safety Operating Procedure:</strong>
-            All cylinders entering the distribution depot from Agispure Gas must be checked with soap solution for micro-valve leaks. Tare weights must match manufacturer embossed ratings before final handover to delivery drivers.
+            All cylinders entering the distribution depot from Aegis Pure gas must be checked with soap solution for micro-valve leaks. Tare weights must match manufacturer embossed ratings before final handover to delivery drivers.
           </div>
         </div>
       </main>

@@ -8,7 +8,7 @@ export function TestimonialsSection() {
     {
       author: 'Commercial Kitchen Manager',
       organisation: 'Restaurant Client (Palani Region)',
-      text: 'Switching our restaurant recurring supply to SIJAYA has streamlined our operational kitchen mornings. Cylinders are delivered on time before our breakfast prep starts.',
+      text: 'Switching our restaurant recurring supply to SIJAYA Agency has streamlined our operational kitchen mornings. Cylinders are delivered on time before our breakfast prep starts.',
       isDemo: true,
       rating: 5,
     },
@@ -39,7 +39,7 @@ export function TestimonialsSection() {
             Commitment to Real Service Quality
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            What commercial chefs, institutional wardens, and households say about their experience with SIJAYA GasFlow.
+            What commercial chefs, institutional wardens, and households say about their experience with SIJAYA Agency.
           </p>
 
           <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-medium border border-amber-200">

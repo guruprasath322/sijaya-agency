@@ -1,9 +1,9 @@
-# SIJAYA GasFlow — Design System
+# SIJAYA Agency — Design System
 
 ## Brand Identity
 
-**Platform Name:** SIJAYA GasFlow  
-**Business:** SIJAYA Agencies — LPG Gas Distribution
+**Platform Name:** SIJAYA Agency  
+**Business:** SIJAYA Agency — LPG Gas Distribution
 
 ---
 
@@ -87,7 +87,7 @@ Use Tailwind's default 4-point scale:
 
 ## Component Library
 
-Built on **shadcn/ui** with SIJAYA design tokens.
+Built on **shadcn/ui** with SIJAYA Agency design tokens.
 
 ### Buttons
 
@@ -135,7 +135,7 @@ hover: shadow-md transition-shadow duration-200
 
 ## Logo
 
-SVG wordmark: "SIJAYA" in bold sans-serif + flame/drop icon  
+SVG wordmark: "SIJAYA Agency" in bold sans-serif + flame/drop icon  
 Files: `/public/logo.svg`, `/public/logo-white.svg`, `/public/logo-mark.svg`
 
 ---

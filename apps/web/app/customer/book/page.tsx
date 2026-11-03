@@ -252,7 +252,7 @@ export default function BookDomesticPage() {
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs text-slate-600">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Agispure Certified Pure Gas Supply</span>
+                <span>Supplied by Aegis Pure gas</span>
               </div>
               <span className="font-semibold text-slate-700">Official Rate Receipt on Delivery</span>
             </div>

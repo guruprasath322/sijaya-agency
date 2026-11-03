@@ -60,7 +60,7 @@ app.use('/uploads', express.static('uploads'));
 
 // ── Health check ────────────────────────────────────────────
 app.get('/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString(), service: 'SIJAYA GasFlow API' });
+  res.json({ status: 'ok', timestamp: new Date().toISOString(), service: 'SIJAYA Agency API' });
 });
 
 // ── API Routes ──────────────────────────────────────────────
@@ -83,7 +83,7 @@ app.use('/api/reports', reportsRouter);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 SIJAYA GasFlow API running on http://localhost:${PORT}`);
+  console.log(`\n🚀 SIJAYA Agency API running on http://localhost:${PORT}`);
   console.log(`   Health: http://localhost:${PORT}/health\n`);
 });
 

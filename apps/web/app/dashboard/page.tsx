@@ -62,7 +62,7 @@ export default function DashboardOverviewPage() {
             Agency Operations Overview
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Real-time telemetry and order dispatch ledger for SIJAYA Agencies
+            Real-time telemetry and order dispatch ledger for SIJAYA Agency
           </p>
         </div>
 

@@ -103,7 +103,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
             </div>
             <div className="overflow-hidden">
               <div className="text-xs font-bold text-white truncate">
-                {user?.staff?.name || user?.email || 'SIJAYA Administrator'}
+                {user?.staff?.name || user?.email || 'SIJAYA Agency Administrator'}
               </div>
               <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider">
                 {user?.role || 'MANAGER'} LEVEL
@@ -167,7 +167,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
         {/* Top Operational Bar */}
         <header className="hidden lg:flex bg-white border-b border-slate-200 px-8 py-3.5 items-center justify-between shadow-sm sticky top-0 z-20">
           <div className="flex items-center gap-4 text-xs font-medium text-slate-500">
-            <span>Supplier Partner: <strong className="text-[#102A43]">Agispure Gas</strong></span>
+            <span>Supplier Partner: <strong className="text-[#102A43]">Aegis Pure gas</strong></span>
             <span>•</span>
             <span className="flex items-center gap-1.5 text-emerald-600">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />

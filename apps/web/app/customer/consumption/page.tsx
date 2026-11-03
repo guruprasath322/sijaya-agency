@@ -35,7 +35,7 @@ export default function CustomerConsumptionPage() {
         <Info className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
         <div className="text-xs sm:text-sm">
           <span className="font-bold">Measurement Accuracy Note: </span>
-          The data displayed represents verified cylinder deliveries recorded by SIJAYA distribution logistics. Per regulatory standards, delivered volume is not labeled as burning consumption without automated telemetry metering.
+          The data displayed represents verified cylinder deliveries recorded by SIJAYA Agency distribution logistics. Per regulatory standards, delivered volume is not labeled as burning consumption without automated telemetry metering.
         </div>
       </div>
 

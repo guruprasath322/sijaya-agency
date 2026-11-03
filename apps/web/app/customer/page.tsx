@@ -124,7 +124,7 @@ export default function CustomerDashboard() {
         <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
           <div>
             <h2 className="text-lg font-bold text-[#102A43]">Active & Recent Gas Orders</h2>
-            <p className="text-xs text-slate-500">Live order status tracked in the SIJAYA distribution ledger</p>
+            <p className="text-xs text-slate-500">Live order status tracked in the SIJAYA Agency distribution ledger</p>
           </div>
           <Link
             href="/customer/orders"

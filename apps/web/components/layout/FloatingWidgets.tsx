@@ -22,17 +22,17 @@ export function FloatingWidgets() {
     <>
       {/* Floating WhatsApp Action Button */}
       <a
-        href="https://wa.me/?text=Hello%20SIJAYA%20Agencies,%20I%20would%20like%20to%20enquire%20about%20LPG%20gas%20supply."
+        href="https://wa.me/?text=Hello%20Aegis%20Puregas,%20I%20would%20like%20to%20enquire%20about%20LPG%20gas%20supply."
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float group"
-        aria-label="Chat with SIJAYA Agencies on WhatsApp"
+        aria-label="Chat with SIJAYA Agency on WhatsApp"
         title="Chat on WhatsApp"
       >
         <MessageCircle className="w-7 h-7 text-white fill-white" />
         <span className="sr-only">Chat on WhatsApp</span>
         <span className="absolute right-16 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-          Chat with SIJAYA Support
+          Chat with SIJAYA Agency Support
         </span>
       </a>
 

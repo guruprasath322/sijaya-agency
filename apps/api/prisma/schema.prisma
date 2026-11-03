@@ -1,4 +1,4 @@
-// This is your Prisma schema file for SIJAYA GasFlow
+// This is your Prisma schema file for SIJAYA Agency
 // Run: npx prisma generate && npx prisma migrate dev
 
 generator client {

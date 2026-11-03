@@ -23,7 +23,7 @@ export function SafetySection() {
     {
       icon: PhoneCall,
       title: 'Authorised Agency Assistance',
-      desc: 'Never attempt DIY repairs on cylinder valves or regulators. Immediately contact SIJAYA emergency response or your authorized safety technician.',
+      desc: 'Never attempt DIY repairs on cylinder valves or regulators. Immediately contact SIJAYA Agency emergency response or your authorized safety technician.',
     },
   ];
 
