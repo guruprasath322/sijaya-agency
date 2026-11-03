@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageSquare, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -58,9 +58,8 @@ export function ContactSection() {
                     <p className="text-sm font-medium text-slate-800 mt-0.5">
                       SIJAYA Agencies
                     </p>
-                    <p className="text-xs text-slate-500">
-                      [Business Address — Configurable in Admin Content Settings]
-                    </p>
+                    <p className="text-xs text-slate-500">Thiumangalam, Tiruppur, Vellakoil, Tamil Nadu 638111</p>
+                    <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="mt-1 inline-block text-xs font-semibold text-[#176B9B] hover:underline">View agency on Google Maps</a>
                   </div>
                 </div>
 
@@ -70,10 +69,10 @@ export function ContactSection() {
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-slate-500 uppercase">Direct Phone Support</span>
-                    <p className="text-sm font-medium text-slate-800 mt-0.5">
-                      [Phone Number — Configurable in Admin Settings]
-                    </p>
-                    <p className="text-xs text-slate-500">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    <div className="mt-1 flex flex-col gap-1 text-sm font-medium text-slate-800">
+                      <a href="tel:+919789494899" className="hover:text-[#176B9B]">+91 97894 94899</a>
+                      <a href="tel:+919894761199" className="hover:text-[#176B9B]">+91 98947 61199</a>
+                    </div>
                   </div>
                 </div>
 
@@ -83,9 +82,10 @@ export function ContactSection() {
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-slate-500 uppercase">WhatsApp Ordering</span>
-                    <p className="text-sm font-medium text-slate-800 mt-0.5">
-                      [WhatsApp Support Channel — Configurable in Settings]
-                    </p>
+                    <div className="mt-1 flex flex-col gap-1 text-sm font-medium text-slate-800">
+                      <a href="https://wa.me/919789494899" target="_blank" rel="noreferrer" className="hover:text-emerald-700">WhatsApp +91 97894 94899</a>
+                      <a href="https://wa.me/919894761199" target="_blank" rel="noreferrer" className="hover:text-emerald-700">WhatsApp +91 98947 61199</a>
+                    </div>
                     <p className="text-xs text-slate-500">Instant response during business hours</p>
                   </div>
                 </div>
@@ -96,35 +96,26 @@ export function ContactSection() {
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-slate-500 uppercase">Official Email</span>
-                    <p className="text-sm font-medium text-slate-800 mt-0.5">
-                      contact@sijaya.in
-                    </p>
+                    <a href="mailto:contact@sijaya.in" className="mt-0.5 block text-sm font-medium text-slate-800 hover:text-[#176B9B]">contact@sijaya.in</a>
                     <p className="text-xs text-slate-500">For quotations and formal accounts</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-slate-500 uppercase">Distribution Hours</span>
-                    <p className="text-sm font-medium text-slate-800 mt-0.5">
-                      Monday to Saturday: 9:00 AM – 6:00 PM
-                    </p>
-                    <p className="text-xs text-slate-500">Sunday: Closed (Emergency delivery on request)</p>
-                  </div>
-                </div>
               </div>
             </div>
 
-            {/* Interactive Map Visual Placeholder */}
-            <div className="rounded-2xl bg-slate-100 border border-slate-200 p-6 flex flex-col items-center justify-center text-center h-48 relative overflow-hidden">
-              <MapPin className="w-8 h-8 text-[#176B9B] mb-2 animate-bounce" />
-              <div className="font-bold text-sm text-[#102A43]">Depot & Warehouse Location Map</div>
-              <p className="text-xs text-slate-500 mt-1 max-w-xs">
-                Interactive Google Map embed viewable upon setting the Google Maps Embed Key in Content Management.
-              </p>
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <iframe
+                title="Map showing SIJAYA Agencies in Vellakoil"
+                src="https://maps.google.com/maps?q=10.9662657%2C77.7001181&z=16&output=embed"
+                className="block aspect-square w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-[#176B9B] hover:bg-blue-50 transition-colors">
+                <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4" /> SIJAYA Agencies · Vellakoil</span>
+                <span>Open directions →</span>
+              </a>
             </div>
           </div>
 

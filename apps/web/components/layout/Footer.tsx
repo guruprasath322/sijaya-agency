@@ -88,19 +88,19 @@ export function Footer() {
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                <span>SIJAYA Agencies, Depot & Distribution Office</span>
+                <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="hover:text-white">SIJAYA Agencies · Office & Depot</a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>[Agency Phone Number]</span>
+                <span className="flex flex-col"><a href="tel:+919789494899" className="hover:text-white">+91 97894 94899</a><a href="tel:+919894761199" className="hover:text-white">+91 98947 61199</a></span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <span>contact@sijaya.in</span>
+                <a href="mailto:contact@sijaya.in" className="hover:text-white">contact@sijaya.in</a>
               </div>
               <div className="flex items-center gap-2 text-emerald-400 font-semibold">
                 <MessageSquare className="w-4 h-4 flex-shrink-0" />
-                <span>WhatsApp Available</span>
+                <span className="flex flex-col"><a href="https://wa.me/919789494899" target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp · 97894 94899</a><a href="https://wa.me/919894761199" target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp · 98947 61199</a></span>
               </div>
             </div>
           </div>

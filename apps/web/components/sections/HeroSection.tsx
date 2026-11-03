@@ -13,7 +13,7 @@ export function HeroSection() {
           <span className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-black/20 px-4 py-2 text-xs font-semibold uppercase tracking-[.16em] text-amber-200">
             <span className="h-2 w-2 rounded-full bg-amber-400" /> SIJAYA Agencies · Agispure LPG
           </span>
-          <h1 className="mt-7 text-4xl font-black leading-[1.08] tracking-tight sm:text-6xl">Reliable LPG for every home and business.</h1>
+          <h1 className="mt-7 text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl">Reliable LPG for every home and business.</h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-200">High-purity LPG fuel designed for steady pressure and clean combustion. From home refills to dependable commercial supply.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/customer/book" className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 font-bold text-[#102A43] shadow-lg transition hover:bg-amber-300">Order / Request Supply <ArrowRight className="h-5 w-5" /></Link>
