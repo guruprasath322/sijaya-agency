@@ -11,13 +11,11 @@ import { BusinessSolutionsSection } from '@/components/sections/BusinessSolution
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { WhyChooseSection } from '@/components/sections/WhyChooseSection';
 import { ProductShowcase } from '@/components/sections/ProductShowcase';
-import { SafetySection } from '@/components/sections/SafetySection';
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingWidgets } from '@/components/layout/FloatingWidgets';
 
 export default function HomePage() {
-  return <AuthProvider><div className="min-h-screen flex flex-col bg-white text-[#102A43]"><Navbar /><main className="flex-1"><HeroSection /><BrandShowcase /><AboutSection /><ServicesSection /><BusinessSolutionsSection /><HowItWorksSection /><WhyChooseSection /><ProductShowcase /><SafetySection /><TestimonialsSection /><FAQSection /><ContactSection /></main><Footer /><FloatingWidgets /></div></AuthProvider>;
+  return <AuthProvider><div className="min-h-screen flex flex-col bg-white text-[#102A43]"><Navbar /><main className="flex-1"><HeroSection /><BrandShowcase /><AboutSection /><ServicesSection /><BusinessSolutionsSection /><HowItWorksSection /><WhyChooseSection /><ProductShowcase /><FAQSection /><ContactSection /></main><Footer /><FloatingWidgets /></div></AuthProvider>;
 }

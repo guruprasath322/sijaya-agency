@@ -100,7 +100,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-emerald-400 font-semibold">
                 <MessageSquare className="w-4 h-4 flex-shrink-0" />
-                <span className="flex flex-col"><a href="https://wa.me/919789494899" target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp · 97894 94899</a><a href="https://wa.me/919894761199" target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp · 98947 61199</a></span>
+                <span className="flex flex-col"><a href="https://wa.me/919894761199" target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp · 98947 61199</a></span>
               </div>
             </div>
           </div>

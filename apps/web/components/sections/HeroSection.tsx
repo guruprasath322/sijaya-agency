@@ -7,7 +7,7 @@ import { ArrowRight, ShieldCheck, Truck } from 'lucide-react';
 export function HeroSection() {
   return (
     <section id="hero" className="relative isolate min-h-[680px] flex items-center overflow-hidden bg-[#102A43] pt-24">
-      <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(90deg, rgba(8,25,40,.94) 0%, rgba(8,25,40,.78) 47%, rgba(8,25,40,.18) 100%), url('/hero-depot.png')" }} />
+      <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(90deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.38) 47%, rgba(0,0,0,.08) 100%), url('/hero-depot.png')" }} />
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-2xl text-white">
           <span className="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-black/20 px-4 py-2 text-xs font-semibold uppercase tracking-[.16em] text-amber-200">
