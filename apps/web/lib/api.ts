@@ -132,6 +132,27 @@ export const quotationsApi = {
   reject: (id: string) => api.patch<Quotation>(`/api/quotations/${id}/reject`, {}),
 };
 
+export interface SupplyRequest {
+  id: string;
+  name: string;
+  phone: string;
+  email: string | null;
+  requirementType: string;
+  message: string;
+  status: 'NEW' | 'CONTACTED' | 'CLOSED';
+  createdAt: string;
+  updatedAt: string;
+}
+
+export const supplyRequestsApi = {
+  create: (data: { name: string; phone: string; email: string; category: string; message: string; website?: string }) =>
+    api.post<{ received: boolean; id?: string }>('/api/supply-requests', data),
+  getAll: (status?: string) =>
+    api.get<SupplyRequest[]>(`/api/supply-requests${status ? `?status=${encodeURIComponent(status)}` : ''}`),
+  updateStatus: (id: string, status: SupplyRequest['status']) =>
+    api.patch<SupplyRequest>(`/api/supply-requests/${id}/status`, { status }),
+};
+
 // ── Staff ────────────────────────────────────────────────
 export const staffApi = {
   getAll: () => api.get<Staff[]>('/api/staff'),

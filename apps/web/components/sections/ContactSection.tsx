@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { CheckCircle2, Mail, MapPin, MessageSquare, Phone, Send } from 'lucide-react';
+import { supplyRequestsApi } from '@/lib/api';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,15 +14,23 @@ export function ContactSection() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [website, setWebsite] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setSubmitError('');
+    try {
+      await supplyRequestsApi.create({ ...formData, website });
       setLoading(false);
       setSubmitted(true);
       setFormData({ name: '', phone: '', email: '', category: 'Domestic LPG', message: '' });
-    }, 600);
+      setWebsite('');
+    } catch {
+      setSubmitError('We could not save your request right now. Please call or WhatsApp SIJAYA Agency.');
+      setLoading(false);
+    }
   };
 
   return (
@@ -89,6 +98,9 @@ export function ContactSection() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
+              <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                <label>Leave this field blank<input autoComplete="off" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
+              </div>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Your Full Name *</label>
@@ -121,6 +133,8 @@ export function ContactSection() {
                 <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Your Delivery Address &amp; Specific Requirements *</label>
                 <textarea required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Enter your complete address, street, landmark, pincode and specific requirements..." className="input-field resize-y" />
               </div>
+
+              {submitError && <p role="alert" className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">{submitError}</p>}
 
               <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#176B9B] px-6 py-4 text-base font-bold text-white shadow-md transition hover:bg-[#102A43] disabled:opacity-50">
                 {loading ? 'Sending Request...' : <><Send className="h-5 w-5" /><span>Send Request</span></>}
