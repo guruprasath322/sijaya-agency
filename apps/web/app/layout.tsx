@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   description:
     'SIJAYA Agency provides reliable LPG gas supply for homes, businesses and industries. Domestic, commercial and bulk LPG distribution.',
   keywords: ['LPG', 'gas agency', 'cylinder', 'SIJAYA Agency', 'commercial gas', 'bulk LPG'],
+  icons: {
+    icon: '/logo-s.png',
+    shortcut: '/logo-s.png',
+    apple: '/logo-s.png',
+  },
   openGraph: {
     title: 'SIJAYA Agency',
     description: 'Reliable Gas Supply. Smarter Business.',
