@@ -13,24 +13,24 @@ export function ProductShowcase() {
   const fallbackProducts: Partial<Product>[] = [
     {
       id: '1',
-      name: 'Domestic LPG 14.2 kg',
-      nameTamil: 'உள்நாட்டு எல்பிஜி 14.2 கிலோ',
+      name: 'LPG Cylinder 33 kg',
+      nameTamil: 'எல்பிஜி சிலிண்டர் 33 கிலோ',
       unit: 'CYLINDER_14KG',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 1,
     },
     {
       id: '2',
-      name: 'Commercial LPG 19 kg',
-      nameTamil: 'வணிக எல்பிஜி 19 கிலோ',
+      name: 'LPG Cylinder 17 kg',
+      nameTamil: 'எல்பிஜி சிலிண்டர் 17 கிலோ',
       unit: 'CYLINDER_19KG',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 2,
     },
     {
       id: '3',
-      name: 'Compact LPG 5 kg',
-      nameTamil: 'சிறிய எல்பிஜி 5 கிலோ',
+      name: 'LPG Cylinder 12 kg',
+      nameTamil: 'எல்பிஜி சிலிண்டர் 12 கிலோ',
       unit: 'CYLINDER_5KG',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 3,
@@ -62,9 +62,9 @@ export function ProductShowcase() {
   }, []);
 
   return (
-    <section id="products" className="py-20 md:py-28 bg-white relative">
+    <section id="products" className="py-14 sm:py-16 md:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
             Product Catalogue
           </div>
@@ -76,15 +76,22 @@ export function ProductShowcase() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((prod) => (
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {products.map((prod) => {
+            const display = {
+              1: { name: 'LPG Cylinder 33 kg', nameTamil: 'எல்பிஜி சிலிண்டர் 33 கிலோ', weight: '33 KG' },
+              2: { name: 'LPG Cylinder 17 kg', nameTamil: 'எல்பிஜி சிலிண்டர் 17 கிலோ', weight: '17 KG' },
+              3: { name: 'LPG Cylinder 12 kg', nameTamil: 'எல்பிஜி சிலிண்டர் 12 கிலோ', weight: '12 KG' },
+            }[prod.displayOrder];
+
+            return (
             <div
               key={prod.id}
-              className="flex flex-col justify-between rounded-2xl bg-slate-50/70 border border-slate-200/90 p-6 hover:bg-white hover:border-[#176B9B]/60 hover:shadow-xl transition-all duration-300 group"
+              className="flex flex-col justify-between rounded-2xl bg-slate-50/70 border border-slate-200/90 p-4 sm:p-6 hover:bg-white hover:border-[#176B9B]/60 hover:shadow-xl transition-all duration-300 group"
             >
               <div>
                 {/* Visual Cylinder Graphic Container */}
-                <div className="w-full h-44 rounded-xl bg-gradient-to-b from-slate-100 to-slate-200/70 flex items-center justify-center p-4 mb-5 relative overflow-hidden group-hover:from-blue-50 group-hover:to-slate-100 transition-colors">
+                <div className="w-full h-36 sm:h-44 rounded-xl bg-gradient-to-b from-slate-100 to-slate-200/70 flex items-center justify-center p-4 mb-5 relative overflow-hidden group-hover:from-blue-50 group-hover:to-slate-100 transition-colors">
                   <div className="relative">
                     {/* SVG Realistic Cylinder Graphic Badge */}
                     <svg width="80" height="110" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,17 +106,17 @@ export function ProductShowcase() {
                   </div>
 
                   <span className="absolute top-3 right-3 text-[11px] font-bold px-2 py-0.5 rounded bg-white/90 text-slate-700 shadow-sm">
-                    {prod.unit.replace('CYLINDER_', '').replace('_', ' ')}
+                    {display?.weight ?? prod.unit.replace('CYLINDER_', '').replace('_', ' ')}
                   </span>
                 </div>
 
                 {/* Title & Bilingual Name */}
                 <h3 className="text-lg font-bold text-[#102A43] group-hover:text-[#176B9B] transition-colors">
-                  {prod.name}
+                  {display?.name ?? prod.name}
                 </h3>
-                {prod.nameTamil && (
+                {(display?.nameTamil ?? prod.nameTamil) && (
                   <p className="text-xs text-[#176B9B] font-medium font-tamil mt-0.5 mb-2">
-                    {prod.nameTamil}
+                    {display?.nameTamil ?? prod.nameTamil}
                   </p>
                 )}
 
@@ -136,7 +143,8 @@ export function ProductShowcase() {
                 </Link>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
 
         <div className="mt-8 text-center bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 max-w-2xl mx-auto">

@@ -18,6 +18,7 @@ import { paymentsRouter } from './routes/payments';
 import { staffRouter } from './routes/staff';
 import { analyticsRouter } from './routes/analytics';
 import { reportsRouter } from './routes/reports';
+import { supplyRequestsRouter } from './routes/supplyRequests';
 import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
@@ -78,6 +79,7 @@ app.use('/api/payments', paymentsRouter);
 app.use('/api/staff', staffRouter);
 app.use('/api/analytics', analyticsRouter);
 app.use('/api/reports', reportsRouter);
+app.use('/api/supply-requests', supplyRequestsRouter);
 
 // ── Error handler ───────────────────────────────────────────
 app.use(errorHandler);

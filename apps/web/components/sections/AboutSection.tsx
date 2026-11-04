@@ -24,12 +24,12 @@ export function AboutSection() {
     {
       icon: Users,
       title: 'Dedicated Customer Care',
-      description: 'Direct phone, WhatsApp and online portal assistance for seamless refills and account billing.',
+      description: 'Direct phone or WhatsApp for seamless refills and account billing.',
     },
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-white relative">
+    <section id="about" className="py-14 sm:py-16 md:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Story & Mission */}
@@ -50,19 +50,30 @@ export function AboutSection() {
               We understand that an uninterrupted gas supply is essential for every home and business. Our operations track stock levels, coordinate supply schedules and record transactions transparently.
             </p>
 
+            <div className="inline-flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white">
+                <Image src="/aegis-puregas.png" alt="Aegis Puregas logo" width={64} height={80} className="h-16 w-16 object-contain" />
+              </div>
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">LPG supplied by</div>
+                <div className="mt-0.5 text-base font-bold text-[#102A43]">Aegis Puregas</div>
+                <div className="text-xs text-slate-500">SIJAYA Agency supply partner</div>
+              </div>
+            </div>
+
             {/* Metrics Mini-Grid */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100">
               <div className="p-3 bg-slate-50 rounded-xl">
-                <div className="text-2xl font-black text-[#176B9B]">100%</div>
+                <div className="text-xl font-black text-[#176B9B] sm:text-2xl">100%</div>
                 <div className="text-xs text-slate-500 font-medium mt-1">Cylinder Inspection</div>
               </div>
               <div className="p-3 bg-slate-50 rounded-xl">
-                <Image src="/aegis-puregas.png" alt="Aegis Puregas logo" width={120} height={78} className="h-[78px] w-full max-w-[120px] object-contain mix-blend-multiply" />
+                <div className="text-sm font-black text-[#F59E0B] sm:text-xl">Aegis Puregas</div>
                 <div className="text-xs text-slate-500 font-medium mt-1">Supply Partner</div>
               </div>
               <div className="p-3 bg-slate-50 rounded-xl">
                 <div className="text-2xl font-black text-[#102A43]">24/7</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Digital Portal</div>
+                <div className="text-xs text-slate-500 font-medium mt-1">Service</div>
               </div>
             </div>
           </div>

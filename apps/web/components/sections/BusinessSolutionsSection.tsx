@@ -14,13 +14,13 @@ export function BusinessSolutionsSection() {
   ];
 
   return (
-    <section id="business" className="py-20 md:py-28 bg-[#102A43] text-white relative overflow-hidden">
+    <section id="business" className="py-14 sm:py-16 md:py-28 bg-[#102A43] text-white relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#176B9B]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3 border border-white/10">
             Enterprise Solutions
           </div>

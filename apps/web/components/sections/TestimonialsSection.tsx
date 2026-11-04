@@ -29,9 +29,9 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white relative">
+    <section className="py-14 sm:py-16 md:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
             Customer Feedback
           </div>

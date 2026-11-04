@@ -681,6 +681,24 @@ model WebsiteContent {
 }
 
 // ─────────────────────────────────────────────
+// PUBLIC SUPPLY REQUESTS
+// ─────────────────────────────────────────────
+
+model SupplyRequest {
+  id              String   @id @default(uuid())
+  name            String
+  phone           String
+  email           String?
+  requirementType String
+  message         String
+  status          String   @default("NEW")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status, createdAt])
+}
+
+// ─────────────────────────────────────────────
 // NOTIFICATIONS
 // ─────────────────────────────────────────────
 

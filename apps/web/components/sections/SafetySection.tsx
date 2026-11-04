@@ -28,9 +28,9 @@ export function SafetySection() {
   ];
 
   return (
-    <section id="safety" className="py-20 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
+    <section id="safety" className="py-14 sm:py-16 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100/70 text-red-700 text-xs font-semibold uppercase tracking-wider mb-3">
             <AlertTriangle className="w-3.5 h-3.5" />
             Safety First Protocol

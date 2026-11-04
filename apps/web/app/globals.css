@@ -30,6 +30,7 @@
   body {
     @apply bg-background text-[#102A43] font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -111,7 +112,7 @@
   .input-field {
     @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-[#102A43] 
            focus:outline-none focus:ring-2 focus:ring-[#176B9B] focus:border-transparent 
-           placeholder:text-slate-400 transition-all duration-150 text-xs sm:text-sm;
+           placeholder:text-slate-400 transition-all duration-150 text-base sm:text-sm;
   }
 
   /* ── Tables ───────────────────────────────────────── */

@@ -25,17 +25,17 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-white px-4 py-20 text-[#102A43] md:py-28">
+    <section id="contact" className="bg-white px-4 py-14 text-[#102A43] sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <header className="mb-10 text-center">
+        <header className="mb-8 text-center sm:mb-10">
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Request Gas Supply or Quotation</h1>
           <p className="mt-4 text-base text-slate-600 sm:text-lg">
             Fill in your details and requirements. Our distribution officer will get in touch with you promptly.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-          <aside className="space-y-5 lg:col-span-5">
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:gap-8 lg:grid-cols-12">
+          <aside className="lg:col-span-5">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <h2 className="mb-5 text-xl font-bold">Agency Contact Details</h2>
               <div className="space-y-5">
@@ -75,16 +75,9 @@ export function ContactSection() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-              <iframe title="Map showing SIJAYA Agency in Vellakoil" src="https://maps.google.com/maps?q=10.9662657%2C77.7001181&z=16&output=embed" className="block aspect-square w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-              <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-[#176B9B] hover:bg-blue-50 transition-colors">
-                <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4" /> SIJAYA Agency · Vellakoil</span>
-                <span>Open directions →</span>
-              </a>
-            </div>
           </aside>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-10 lg:col-span-7">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-md sm:p-8 lg:col-span-7 xl:p-10">
           {submitted ? (
             <div className="flex items-start gap-4 rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-emerald-900">
               <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-600" />
@@ -135,6 +128,14 @@ export function ContactSection() {
             </form>
           )}
           </div>
+        </div>
+
+        <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:mt-8">
+          <iframe title="Map showing SIJAYA Agency in Vellakoil" src="https://maps.google.com/maps?q=10.9662657%2C77.7001181&z=16&output=embed" className="block h-[280px] w-full sm:h-[420px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+          <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-[#176B9B] hover:bg-blue-50 transition-colors">
+            <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4" /> SIJAYA Agency · Vellakoil</span>
+            <span>Open directions →</span>
+          </a>
         </div>
       </div>
     </section>

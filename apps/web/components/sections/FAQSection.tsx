@@ -9,7 +9,7 @@ export function FAQSection() {
   const faqs = [
     {
       q: 'How can I request an LPG cylinder?',
-      a: 'You can request a domestic refill or commercial supply directly through our online customer portal, by registering an account, or by contacting our agency office directly by phone or WhatsApp.',
+      a: 'You can request a domestic refill or commercial supply by contacting our agency office directly by phone call or WhatsApp.',
     },
     {
       q: 'Do you supply commercial LPG for restaurants and hotels?',
@@ -24,19 +24,15 @@ export function FAQSection() {
       a: 'You can submit a bulk supply enquiry through our "Request Gas / Quote" form or contact our commercial manager directly. We review your quantity requirements, delivery facility, and provide a formal written quotation.',
     },
     {
-      q: 'How do I track my active cylinder delivery?',
-      a: 'Once your order is confirmed, log in to your customer portal. You will see real-time status updates: Pending, Confirmed, Scheduled, Out for Delivery, or Delivered.',
-    },
-    {
       q: 'How do I contact SIJAYA Agency?',
       a: 'Reach us via our official office phone, send an instant message on WhatsApp, use the contact form below, or visit our local distribution warehouse during working hours.',
     },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
+    <section className="py-14 sm:py-16 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/60 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
             Frequently Asked Questions
