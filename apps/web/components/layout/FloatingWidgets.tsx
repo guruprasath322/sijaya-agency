@@ -22,7 +22,7 @@ export function FloatingWidgets() {
     <>
       {/* Floating WhatsApp Action Button */}
       <a
-        href="https://wa.me/?text=Hello%20Aegis%20Puregas,%20I%20would%20like%20to%20enquire%20about%20LPG%20gas%20supply."
+        href="https://wa.me/919789494899?text=Hello%20SIJAYA%20Agency,%20I%20would%20like%20to%20enquire%20about%20LPG%20gas%20supply."
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float group"

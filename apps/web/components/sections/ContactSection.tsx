@@ -87,7 +87,7 @@ export function ContactSection() {
                   <MessageSquare className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
                   <div>
                     <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">WhatsApp Ordering</h3>
-                    <a href="https://wa.me/919894761199" target="_blank" rel="noreferrer" className="mt-1 block text-sm font-medium hover:text-emerald-700">WhatsApp · +91 98947 61199</a>
+                    <a href="https://wa.me/919789494899" target="_blank" rel="noreferrer" className="mt-1 block text-sm font-medium hover:text-emerald-700">WhatsApp · +91 97894 94899</a>
                     <p className="text-xs text-slate-500">Instant response during business hours</p>
                   </div>
                 </div>

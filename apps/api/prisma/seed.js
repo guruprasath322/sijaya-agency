@@ -134,7 +134,7 @@ async function main() {
         { nameEnglish: 'Salem R.R Biriyani', category: 'Restaurant', isApproved: false },
         { nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', isApproved: false },
         { nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', isApproved: false },
-        { nameEnglish: 'Arunmigu Mill', nameTamil: 'அருண்மிகு மில்', category: 'Commercial Mill', isApproved: false },
+        { nameEnglish: 'Arulmurugan Mill', nameTamil: 'அருள்முருகன் மில்', category: 'Commercial Mill', isApproved: false },
     ];
     for (const [i, brand] of brands.entries()) {
         const existing = await prisma.brand.findFirst({ where: { nameEnglish: brand.nameEnglish } });

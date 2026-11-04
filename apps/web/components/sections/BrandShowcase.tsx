@@ -21,7 +21,7 @@ export function BrandShowcase() {
     { id: '5', nameEnglish: 'Salem R.R Biriyani', category: 'Restaurant', logoUrl: '/brands/salem-rr-biriyani.jpeg', displayOrder: 5 },
     { id: '6', nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', displayOrder: 6 },
     { id: '7', nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', displayOrder: 7 },
-    { id: '8', nameEnglish: 'Arunmigu Mill', nameTamil: 'அருண்மிகு மில்', category: 'Commercial Mill', displayOrder: 8 },
+    { id: '8', nameEnglish: 'Arulmurugan Mill', nameTamil: 'அருள்முருகன் மில்', category: 'Commercial Mill', displayOrder: 8 },
   ].map((brand) => ({
     ...brand,
     logoUrl: brand.logoUrl || brandLogos.find(({ match }) => match(brand.nameEnglish))?.src,
