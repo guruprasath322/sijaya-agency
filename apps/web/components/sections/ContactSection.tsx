@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { CheckCircle2, Mail, MapPin, MessageSquare, Phone, Send } from 'lucide-react';
-import { supplyRequestsApi } from '@/lib/api';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -22,7 +21,26 @@ export function ContactSection() {
     setLoading(true);
     setSubmitError('');
     try {
-      await supplyRequestsApi.create({ ...formData, website });
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
+      if (!accessKey) throw new Error('Web3Forms access key is not configured');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          requirement: formData.category,
+          message: formData.message,
+          subject: `SIJAYA supply request — ${formData.category}`,
+          botcheck: website,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error('Form submission failed');
       setLoading(false);
       setSubmitted(true);
       setFormData({ name: '', phone: '', email: '', category: 'Domestic LPG', message: '' });
