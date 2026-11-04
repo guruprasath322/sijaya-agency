@@ -138,8 +138,9 @@ export function ContactSection() {
                 <div>
                   <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Requirement Type *</label>
                   <select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="input-field">
-                    <option value="Domestic LPG">Domestic LPG Refill (14.2 kg / 5 kg)</option>
-                    <option value="Commercial LPG">Commercial Cylinder (19 kg)</option>
+                    <option value="Domestic LPG">Domestic LPG (4 kg / 12 kg)</option>
+                    <option value="Commercial LPG">Commercial LPG (17 kg / 21 kg / 33 kg)</option>
+                    <option value="Industrial LPG">Industrial LPG (33 kg LOT / 425 kg)</option>
                     <option value="Bulk LPG Supply">Bulk LPG / Multi-Cylinder Manifold</option>
                     <option value="Hotel Recurring Supply">Hotel / Restaurant Recurring Supply</option>
                     <option value="Institutional Quotation">Institutional / Hostel Contract</option>

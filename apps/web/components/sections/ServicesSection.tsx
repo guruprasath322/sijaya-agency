@@ -11,7 +11,7 @@ export function ServicesSection() {
       icon: Home,
       title: 'Domestic LPG Supply',
       subtitle: 'Household Cylinder Refills',
-      badge: '14.2 kg & 5 kg Refills',
+      badge: '4 kg & 12 kg Refills',
       description:
         'Safe, reliable cooking gas for families. Quick digital requests, weight verification upon delivery, and seamless refill tracking directly on your mobile device.',
       features: [
@@ -29,7 +29,7 @@ export function ServicesSection() {
       icon: UtensilsCrossed,
       title: 'Commercial LPG Supply',
       subtitle: 'Hotels, Restaurants & Bakeries',
-      badge: '19 kg Commercial Grade',
+      badge: '17 kg / 21 kg / 33 kg',
       description:
         'Engineered for heavy-duty commercial kitchens, catering enterprises, and food establishments. High flame calorific value with scheduled recurring delivery.',
       features: [

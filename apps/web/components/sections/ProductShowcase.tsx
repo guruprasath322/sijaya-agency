@@ -8,25 +8,25 @@ export function ProductShowcase() {
   const products = [
     {
       id: '1',
-      name: 'LPG Cylinder 33 kg',
-      nameTamil: 'எல்பிஜி சிலிண்டர் 33 கிலோ',
-      unit: 'CYLINDER_14KG',
+      name: 'Domestic LPG',
+      nameTamil: 'உள்நாட்டு எல்பிஜி',
+      weight: '4 kg / 12 kg',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 1,
     },
     {
       id: '2',
-      name: 'LPG Cylinder 17 kg',
-      nameTamil: 'எல்பிஜி சிலிண்டர் 17 கிலோ',
-      unit: 'CYLINDER_19KG',
+      name: 'Commercial LPG',
+      nameTamil: 'வணிக எல்பிஜி',
+      weight: '17 / 21 / 33 kg',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 2,
     },
     {
       id: '3',
-      name: 'LPG Cylinder 12 kg',
-      nameTamil: 'எல்பிஜி சிலிண்டர் 12 கிலோ',
-      unit: 'CYLINDER_5KG',
+      name: 'Industrial LPG',
+      nameTamil: 'தொழில்துறை எல்பிஜி',
+      weight: '33 kg LOT / 425 kg',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 3,
     },
@@ -35,6 +35,7 @@ export function ProductShowcase() {
       name: 'Bulk LPG (kg)',
       nameTamil: 'மொத்த எல்பிஜி (கிலோ)',
       unit: 'KG',
+      weight: 'KG',
       description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
       displayOrder: 4,
     },
@@ -57,12 +58,6 @@ export function ProductShowcase() {
 
         <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {products.map((prod) => {
-            const display = {
-              1: { name: 'LPG Cylinder 33 kg', nameTamil: 'எல்பிஜி சிலிண்டர் 33 கிலோ', weight: '33 KG' },
-              2: { name: 'LPG Cylinder 17 kg', nameTamil: 'எல்பிஜி சிலிண்டர் 17 கிலோ', weight: '17 KG' },
-              3: { name: 'LPG Cylinder 12 kg', nameTamil: 'எல்பிஜி சிலிண்டர் 12 கிலோ', weight: '12 KG' },
-            }[prod.displayOrder];
-
             return (
             <div
               key={prod.id}
@@ -85,17 +80,17 @@ export function ProductShowcase() {
                   </div>
 
                   <span className="absolute top-3 right-3 text-[11px] font-bold px-2 py-0.5 rounded bg-white/90 text-slate-700 shadow-sm">
-                    {display?.weight ?? prod.unit.replace('CYLINDER_', '').replace('_', ' ')}
+                    {prod.weight}
                   </span>
                 </div>
 
                 {/* Title & Bilingual Name */}
                 <h3 className="text-lg font-bold text-[#102A43] group-hover:text-[#176B9B] transition-colors">
-                  {display?.name ?? prod.name}
+                  {prod.name}
                 </h3>
-                {(display?.nameTamil ?? prod.nameTamil) && (
+                {prod.nameTamil && (
                   <p className="text-xs text-[#176B9B] font-medium font-tamil mt-0.5 mb-2">
-                    {display?.nameTamil ?? prod.nameTamil}
+                    {prod.nameTamil}
                   </p>
                 )}
 
