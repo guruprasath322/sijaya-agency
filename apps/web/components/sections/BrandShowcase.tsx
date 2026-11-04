@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { brandsApi, Brand } from '@/lib/api';
 import { Building2, Sparkles } from 'lucide-react';
 
 const brandLogos = [
@@ -13,17 +12,8 @@ const brandLogos = [
   { match: (name: string) => /salem\s*r\.?r/i.test(name), src: '/brands/salem-rr-biriyani.jpeg' },
 ];
 
-function addMatchingLogo(brand: Brand): Brand {
-  const matchedLogo = brandLogos.find(({ match }) => match(brand.nameEnglish))?.src;
-  return { ...brand, logoUrl: brand.logoUrl || matchedLogo };
-}
-
 export function BrandShowcase() {
-  const [brands, setBrands] = useState<Brand[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Fallback verified/preliminary list from supplied agency records
-  const defaultBrands: Partial<Brand>[] = [
+  const brands = [
     { id: '1', nameEnglish: 'EBET College', category: 'Education', logoUrl: '/brands/ebet-college.png', displayOrder: 1 },
     { id: '2', nameEnglish: 'Kuppanna Poultry', category: 'Poultry & Farm', logoUrl: '/brands/kuppanna-poultry.png', displayOrder: 2 },
     { id: '3', nameEnglish: 'Kannika Bakery', category: 'Bakery', logoUrl: '/brands/kanika-bakery.png', displayOrder: 3 },
@@ -32,24 +22,10 @@ export function BrandShowcase() {
     { id: '6', nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', displayOrder: 6 },
     { id: '7', nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', displayOrder: 7 },
     { id: '8', nameEnglish: 'Arunmigu Mill', nameTamil: 'அருண்மிகு மில்', category: 'Commercial Mill', displayOrder: 8 },
-  ];
-
-  useEffect(() => {
-    brandsApi
-      .getPublic()
-      .then((data) => {
-        if (data && data.length > 0) {
-          setBrands(data.map(addMatchingLogo));
-        } else {
-          // If manager hasn't yet toggled approved flag in fresh db, use verified reference records
-          setBrands((defaultBrands as Brand[]).map(addMatchingLogo));
-        }
-      })
-      .catch(() => {
-        setBrands((defaultBrands as Brand[]).map(addMatchingLogo));
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  ].map((brand) => ({
+    ...brand,
+    logoUrl: brand.logoUrl || brandLogos.find(({ match }) => match(brand.nameEnglish))?.src,
+  }));
 
   // Duplicate for seamless infinite loop scroll
   const displayItems = [...brands, ...brands, ...brands];
@@ -116,7 +92,7 @@ export function BrandShowcase() {
 
       <div className="text-center mt-6">
         <p className="text-xs text-slate-400">
-          * Verified business delivery accounts. Managed and updated directly through the SIJAYA Agency administrative platform.
+          * Selected business and institutional customers served by SIJAYA Agency.
         </p>
       </div>
     </section>

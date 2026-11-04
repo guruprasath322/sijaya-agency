@@ -14,7 +14,7 @@ export default function WebsiteContentCMSPage() {
   );
   const [address, setAddress] = useState('[Business Address — To Be Updated in Settings]');
   const [phone, setPhone] = useState('[Phone Number — To Be Updated]');
-  const [email, setEmail] = useState('contact@sijaya.in');
+  const [email, setEmail] = useState('sijayaexcorp@gmail.com');
   const [whatsapp, setWhatsapp] = useState('[WhatsApp Number]');
   const [hours, setHours] = useState('Monday–Saturday: 9:00 AM – 6:00 PM');
 

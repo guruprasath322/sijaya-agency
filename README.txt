@@ -1,53 +1,37 @@
-SIJAYA Agency Website
+SIJAYA AGENCY WEBSITE
 
-A website for SIJAYA Agency, an LPG distributor supplied by Aegis Puregas. It presents the agency’s products, services, business solutions, safety information, and contact details, and includes customer and staff portal features.
+SIJAYA Agency is an LPG distributor supplied by Aegis Puregas. This project contains its public website and database-backed customer and operations portals.
 
-FEATURES
-
-- Responsive public pages for Home, About, Services, Business Solutions, Products, Safety, and Contact
-- LPG product information for domestic, commercial, compact, and bulk supply
-- Supply request and quotation form
-- Agency contact details and location map
-- Customer, staff, and admin portal routes
-- Brand showcase for SIJAYA’s business customers
-- Aegis Puregas supplier branding
+PUBLIC WEBSITE
+- Home, About, Services, Business Solutions, Products, Safety, and Contact pages
+- Responsive layouts, product and customer showcases, contact details, and depot map
+- Supply request form sends submissions to the agency email through Web3Forms
 
 TECHNOLOGY
+- Next.js 15, React 19, TypeScript, Tailwind CSS
+- Express API, Prisma ORM, and PostgreSQL for portal data
+- Web3Forms for contact form email delivery (the form does not save to PostgreSQL)
 
-- Next.js 15
-- React
-- TypeScript
-- Tailwind CSS
-- Prisma
-- PostgreSQL
+LOCAL SETUP
+1. Install Node.js 20 or newer.
+2. From the SIJAYA project folder, run: npm ci
+3. Configure apps/api/.env using .env.example. Add valid PostgreSQL URLs and authentication secrets.
+4. Add the Web3Forms key to apps/web/.env.local:
+   NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
+5. Apply the database migrations and generate Prisma Client:
+   npm run db:migrate --workspace=@sijaya/api
+   npm run db:generate --workspace=@sijaya/api
+6. Start the website and API from the project root:
+   npm run dev
 
-GETTING STARTED
+The website runs at http://localhost:3000. The API runs at http://localhost:4000. If either port is already occupied, stop the old development server before starting another.
 
-Install dependencies from the repository root:
+BUILD
+Website: npm run build --workspace=@sijaya/web
+API: npm run build --workspace=@sijaya/api
 
-npm install
-
-Configure the required environment variables for the web app and API, including the database connection string. Use the project’s example environment files as a guide, if available.
-
-Run the development servers:
-
-npm run dev
-
-Build the web app:
-
-npm run build --workspace @sijaya/web
-
-Run the production web app:
-
-npm run start --workspace @sijaya/web
-
-PROJECT STRUCTURE
-
-apps/
-  api/      API server, Prisma schema, and seed data
-  web/      Next.js website and portal
-docs/       Project and design documentation
+DEPLOYMENT
+Set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY on the hosting service that builds the Next.js website, then redeploy. Configure API environment variables and PostgreSQL on the API host. Do not commit real credentials or .env files.
 
 BRANDING
-
-SIJAYA Agency is the company name. Aegis Puregas is its LPG supplier. The website uses the agency’s branding alongside supplier and customer logos where relevant.
+The company is SIJAYA Agency. Aegis Puregas is its LPG supplier.

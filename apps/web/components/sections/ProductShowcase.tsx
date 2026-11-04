@@ -1,16 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { productsApi, Product } from '@/lib/api';
-import { Flame, ArrowRight, ShieldCheck, Scale, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 export function ProductShowcase() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Fallback initial catalogue from database schema
-  const fallbackProducts: Partial<Product>[] = [
+  const products = [
     {
       id: '1',
       name: 'LPG Cylinder 33 kg',
@@ -44,22 +39,6 @@ export function ProductShowcase() {
       displayOrder: 4,
     },
   ];
-
-  useEffect(() => {
-    productsApi
-      .getAll()
-      .then((data) => {
-        if (data && data.length > 0) {
-          setProducts(data);
-        } else {
-          setProducts(fallbackProducts as Product[]);
-        }
-      })
-      .catch(() => {
-        setProducts(fallbackProducts as Product[]);
-      })
-      .finally(() => setLoading(false));
-  }, []);
 
   return (
     <section id="products" className="py-14 sm:py-16 md:py-28 bg-white relative">
@@ -148,7 +127,7 @@ export function ProductShowcase() {
         </div>
 
         <div className="mt-8 text-center bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 max-w-2xl mx-auto">
-          Notice: LPG cylinder pricing and tariff rates are regulated and updated periodically in the administrative database based on official Aegis Pure gas supplier circulars and applicable GST rates.
+          Notice: LPG cylinder pricing and tariff rates are regulated and updated periodically based on official Aegis Puregas supplier circulars and applicable GST rates.
         </div>
       </div>
     </section>

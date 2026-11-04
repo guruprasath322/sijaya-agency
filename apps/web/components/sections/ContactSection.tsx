@@ -95,7 +95,7 @@ export function ContactSection() {
                   <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#176B9B]" />
                   <div>
                     <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Official Email</h3>
-                    <a href="mailto:contact@sijaya.in" className="mt-1 block text-sm font-medium hover:text-[#176B9B]">contact@sijaya.in</a>
+                    <a href="mailto:sijayaexcorp@gmail.com" className="mt-1 block text-sm font-medium hover:text-[#176B9B]">sijayaexcorp@gmail.com</a>
                     <p className="text-xs text-slate-500">For quotations and formal accounts</p>
                   </div>
                 </div>

@@ -81,7 +81,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <a href="mailto:contact@sijaya.in" className="hover:text-white">contact@sijaya.in</a>
+                <a href="mailto:sijayaexcorp@gmail.com" className="hover:text-white">sijayaexcorp@gmail.com</a>
               </div>
               <div className="flex items-center gap-2 text-emerald-400 font-semibold">
                 <MessageSquare className="w-4 h-4 flex-shrink-0" />
