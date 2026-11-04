@@ -3,6 +3,7 @@ import rateLimit from 'express-rate-limit';
 import { z } from 'zod';
 import { prisma } from '../utils/prisma';
 import { authenticate, authorise } from '../middleware/auth';
+import { param } from '../utils/params';
 
 export const supplyRequestsRouter = Router();
 
@@ -26,7 +27,7 @@ const createSupplyRequestSchema = z.object({
     'Institutional Quotation',
   ]),
   message: z.string().trim().min(5).max(3000),
-  website: z.string().max(0).optional(),
+  website: z.string().max(200).optional(),
 });
 
 const updateStatusSchema = z.object({ status: z.enum(['NEW', 'CONTACTED', 'CLOSED']) });
@@ -79,7 +80,7 @@ supplyRequestsRouter.patch('/:id/status', authenticate, authorise('ADMIN', 'MANA
   try {
     const data = updateStatusSchema.parse(req.body);
     const request = await prisma.supplyRequest.update({
-      where: { id: req.params.id },
+      where: { id: param(req.params.id) },
       data: { status: data.status },
     });
     res.json(request);

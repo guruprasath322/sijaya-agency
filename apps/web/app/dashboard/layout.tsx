@@ -28,6 +28,7 @@ import {
   CheckCircle,
   Clock,
   Sparkles,
+  Inbox,
 } from 'lucide-react';
 
 function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
@@ -63,6 +64,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
       items: [
         { label: 'Brand Carousel', href: '/dashboard/brands', icon: Sparkles },
         { label: 'Website Content', href: '/dashboard/content', icon: Sliders },
+        { label: 'Supply Requests', href: '/dashboard/requests', icon: Inbox },
         { label: 'Staff & Drivers', href: '/dashboard/staff', icon: Users },
         { label: 'Audit Logs', href: '/dashboard/audit', icon: ShieldAlert },
       ],
