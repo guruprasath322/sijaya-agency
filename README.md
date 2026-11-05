@@ -118,3 +118,7 @@ The custom domain [www.sijaya.in](https://www.sijaya.in) is connected to the web
 **Company:** SIJAYA Agency
 
 **LPG supplier:** Aegis Puregas
+
+## Development acknowledgment
+
+Built and maintained by Guruprasath, with coding, debugging, documentation, and deployment assistance from OpenAI Codex.
