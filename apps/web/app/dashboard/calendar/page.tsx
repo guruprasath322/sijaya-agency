@@ -11,7 +11,7 @@ export default function DeliveryCalendarPage() {
     { date: '02', day: 'Mon', count: 9, items: ['6x 19kg - EBET College Canteen', '3x 14.2kg - Residential'] },
     { date: '03', day: 'Tue', count: 12, active: true, items: ['8x 19kg - Kuppanna Poultry', '4x 14.2kg - Town deliveries'] },
     { date: '04', day: 'Wed', count: 7, items: ['4x 19kg - Bhavani Amman Mess', '3x 14.2kg - North ward'] },
-    { date: '05', day: 'Thu', count: 10, items: ['6x 19kg - Winsome Hostel', '4x 19kg - Bakery batch'] },
+    { date: '05', day: 'Thu', count: 10, items: ['6x 19kg - Winsome Hostel Padiyur', '4x 19kg - Bakery batch'] },
     { date: '06', day: 'Fri', count: 8, items: ['5x 19kg - Commercial mills', '3x 14.2kg - Doorstep'] },
     { date: '07', day: 'Sat', count: 14, items: ['10x 19kg - Weekend restaurant prep', '4x 14.2kg - Weekend slots'] },
   ];

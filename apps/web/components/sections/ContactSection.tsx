@@ -80,7 +80,7 @@ export function ContactSection() {
                   <div>
                     <h3 className="text-xs font-bold uppercase tracking-wide text-slate-500">Direct Phone Support</h3>
                     <a href="tel:+919789494899" className="mt-1 block text-sm font-medium hover:text-[#176B9B]">+91 97894 94899</a>
-                    <a href="tel:+919894761199" className="block text-sm font-medium hover:text-[#176B9B]">+91 98947 61199</a>
+                    <a href="tel:+919488679029" className="block text-sm font-medium hover:text-[#176B9B]">+91 94886 79029</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

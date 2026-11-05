@@ -132,16 +132,21 @@ async function main() {
         { nameEnglish: 'Kannika Bakery', category: 'Bakery', isApproved: false },
         { nameEnglish: 'S.R. Bakery – Ottanchathiram', category: 'Bakery', isApproved: false },
         { nameEnglish: 'Salem R.R Biriyani', category: 'Restaurant', isApproved: false },
-        { nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', isApproved: false },
+        { nameEnglish: 'Winsome Hostel – Padiyur', category: 'Hostel', isApproved: false },
         { nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', isApproved: false },
         { nameEnglish: 'Arulmurugan Mill', nameTamil: 'அருள்முருகன் மில்', category: 'Commercial Mill', isApproved: false },
     ];
     for (const [i, brand] of brands.entries()) {
-        const existing = await prisma.brand.findFirst({ where: { nameEnglish: brand.nameEnglish } });
-        if (!existing) {
+        const legacyName = brand.nameEnglish === 'Winsome Hostel – Padiyur' ? 'Winsome Hostel – Palani' : null;
+        const existing = await prisma.brand.findFirst({
+            where: { nameEnglish: { in: [brand.nameEnglish, ...(legacyName ? [legacyName] : [])] } },
+        });
+        if (existing) {
+            await prisma.brand.update({ where: { id: existing.id }, data: { ...brand, displayOrder: i + 1 } });
+        } else {
             await prisma.brand.create({ data: { ...brand, displayOrder: i + 1 } });
-            console.log(`✔ Brand (pending approval): ${brand.nameEnglish}`);
         }
+        console.log(`✔ Brand (pending approval): ${brand.nameEnglish}`);
     }
     // ── Website content placeholders ────────────────────────────
     const contentEntries = [

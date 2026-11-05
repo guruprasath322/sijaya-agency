@@ -75,7 +75,8 @@ export function ProductShowcase() {
                       <path d="M22 40C22 40 25 35 32 33V120C25 118 22 113 22 113V40Z" fill="white" fillOpacity="0.2" />
                       <path d="M22 124H78V132C78 134 76 136 74 136H26C24 136 22 134 22 132V124Z" fill="#991B1B" />
                       <rect x="28" y="60" width="44" height="20" rx="3" fill="#102A43" fillOpacity="0.3" />
-                      <text x="50" y="73" fill="#FFFFFF" fontSize="7" fontWeight="bold" textAnchor="middle">SIJAYA</text>
+                      <text x="50" y="69" fill="#FFFFFF" fontSize="6" fontWeight="bold" textAnchor="middle">AEGIS</text>
+                      <text x="50" y="76" fill="#FFFFFF" fontSize="3.5" fontWeight="bold" letterSpacing="0.5" textAnchor="middle">PUREGAS</text>
                     </svg>
                   </div>
 

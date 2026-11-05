@@ -19,7 +19,7 @@ export function BrandShowcase() {
     { id: '3', nameEnglish: 'Kannika Bakery', category: 'Bakery', logoUrl: '/brands/kanika-bakery.png', displayOrder: 3 },
     { id: '4', nameEnglish: 'S.R. Bakery – Ottanchathiram', category: 'Bakery', logoUrl: '/brands/sr-bakery.jpeg', displayOrder: 4 },
     { id: '5', nameEnglish: 'Salem R.R Biriyani', category: 'Restaurant', logoUrl: '/brands/salem-rr-biriyani.jpeg', displayOrder: 5 },
-    { id: '6', nameEnglish: 'Winsome Hostel – Palani', category: 'Hostel', displayOrder: 6 },
+    { id: '6', nameEnglish: 'Winsome Hostel – Padiyur', category: 'Hostel', displayOrder: 6 },
     { id: '7', nameEnglish: 'Pazhaniandavar Mill', nameTamil: 'பழனியாண்டவர் மில்', category: 'Commercial Mill', displayOrder: 7 },
     { id: '8', nameEnglish: 'Arulmurugan Mill', nameTamil: 'அருள்முருகன் மில்', category: 'Commercial Mill', displayOrder: 8 },
   ].map((brand) => ({
