@@ -10,3 +10,6 @@ build/
 uploads/
 prisma/migrations/dev.db
 
+
+# TypeScript incremental build cache
+*.tsbuildinfo

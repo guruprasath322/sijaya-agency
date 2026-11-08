@@ -1,190 +1,73 @@
-# SIJAYA Agency — Design System
+# SIJAYA Agency design system
 
-## Brand Identity
+The interface combines warm ivory surfaces, navy typography, gold highlights, and restrained motion. The public website prioritizes choosing a supply service and contacting the agency. The operations workspace prioritizes readable records and accessible actions.
 
-**Platform Name:** SIJAYA Agency  
-**Business:** SIJAYA Agency — LPG Gas Distribution
+## Foundations
 
----
+| Token | Value | Purpose |
+| --- | --- | --- |
+| Primary | `#102A43` | Headings, workspace sidebar, dark panels |
+| Corporate | `#176B9B` | Links, primary actions, focus indicators |
+| Accent | `#F59E0B` | Hero action and brand highlights; use navy text |
+| Public surface | `#F7F6F2` | Hero, page introductions, alternating sections |
+| Workspace surface | `#F4F7FA` | Operations background |
+| Card | `#FFFFFF` | Forms, records, cards |
+| Border | `#E2E8F0` | Quiet dividers and outlines |
 
-## Colour Palette
+Inter is the primary font; Noto Sans Tamil supports bilingual product and customer names. Font styles load once through the root layout, with system fallbacks. Body copy uses a generous line height. Display headings scale with breakpoints, and long headings balance automatically.
 
-```
-Primary Navy:      #102A43   — headings, sidebar, primary text
-Corporate Blue:    #176B9B   — links, interactive elements, primary buttons
-Accent Orange:     #F59E0B   — CTAs, highlights, accent elements
-Background:        #F8FAFC   — main page background
-White:             #FFFFFF   — cards, panels
-Primary Text:      #102A43
-Secondary Text:    #64748B   — labels, captions
-Border:            #E2E8F0   — card borders, dividers
-Success:           #16A34A
-Warning:           #D97706
-Error:             #DC2626
-Info:              #0891B2
-```
+## Public pages
 
-### CSS Variables (globals.css)
+`components/layout/PublicLayout.tsx` owns the shared header, footer, skip target, section reveals, breadcrumbs, and optional page introduction. The homepage uses the same shell without an introductory banner.
 
-```css
-:root {
-  --color-primary:       #102A43;
-  --color-corporate:     #176B9B;
-  --color-accent:        #F59E0B;
-  --color-bg:            #F8FAFC;
-  --color-white:         #FFFFFF;
-  --color-text-primary:  #102A43;
-  --color-text-secondary:#64748B;
-  --color-border:        #E2E8F0;
-  --color-success:       #16A34A;
-  --color-warning:       #D97706;
-  --color-error:         #DC2626;
-  
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   16px;
-  
-  --shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  
-  --transition:  all 150ms ease;
-}
-```
+- `.site-container`: centered 1280px maximum with 20px mobile, 32px tablet, and 40px desktop gutters.
+- Header: fixed 80px height, active-route indication, desktop navigation at 1280px, expandable phone/tablet navigation below that width.
+- Sections: 64px vertical padding on phones, 80px on tablets, 96px on desktops.
+- Hero: staggered text, a locally optimized depot photograph, supplier badge, and three supply shortcuts.
+- About: image-led story, supplier panel, and compact service commitments.
+- Services: sticky introduction on desktop with stacked service panels.
+- Products: bilingual cards, staggered entrances, and subtle cylinder hover movement. Product sizes remain unchanged.
+- Safety: numbered guidance with a distinct agency contact panel.
+- Contact: linked labels, browser autofill, readable fields, submission feedback, and contact alternatives.
 
----
+Use one `h1` per screen and a logical `h2`/`h3` hierarchy. Prefer familiar, concise action labels.
 
-## Typography
+## Workspace
 
-**Primary Font:** Inter (Latin and numerals)  
-**Tamil Font:** Noto Sans Tamil (Google Fonts)
+`app/dashboard/layout.tsx` provides grouped navigation, the current-page breadcrumb, an account summary, and a sticky header. The desktop sidebar scrolls independently. The mobile sidebar is a native modal dialog, keeping background controls inert and supporting keyboard focus and Escape.
 
-### Scale
+- Main content has 16px phone padding, 28px tablet padding, and 32–40px desktop padding.
+- Four-column summary grids start at 1280px so the sidebar does not squeeze them on smaller desktops.
+- Tables scroll horizontally inside their panels; they never widen the entire page.
+- The weekly calendar uses a horizontal region on tablets and a vertical list on phones.
+- Staff and driver screens share workspace typography, controls, and surfaces. Delivery cards expand into multiple columns when space permits.
+- Existing customer and registration redirects to `/contact` remain unchanged.
 
-| Name    | Size   | Weight | Use                  |
-|---------|--------|--------|----------------------|
-| Display | 56px   | 700    | Hero headline        |
-| H1      | 40px   | 700    | Page titles          |
-| H2      | 32px   | 600    | Section headings     |
-| H3      | 24px   | 600    | Card headings        |
-| H4      | 20px   | 600    | Subheadings          |
-| Body    | 16px   | 400    | Default text         |
-| Small   | 14px   | 400    | Labels, captions     |
-| XSmall  | 12px   | 400    | Badges, annotations  |
+## Controls
 
----
+Use `.btn-primary`, `.btn-accent`, `.btn-outline`, and `.btn-ghost` consistently. Keep controls at least 44px high, preserve clear disabled states, and name icon-only buttons.
 
-## Spacing System (Tailwind)
+`.input-field` provides a 48px minimum height, a consistent border and focus treatment, and 16px mobile text to prevent browser zoom. Every input needs an associated label or accessible name. Preserve existing validation and API bindings.
 
-Use Tailwind's default 4-point scale:
-- `p-4` = 16px, `p-8` = 32px, `p-12` = 48px, `p-16` = 64px
-- Section padding: `py-20 px-4 md:px-8`
-- Card padding: `p-6`
-- Tight sections: `p-4`
+`components/shared/Modal.tsx` uses native dialogs for focus containment, Escape/backdrop dismissal, focus restoration, background scroll locking, and internal scrolling on small screens. Keep existing form actions and cancel handlers inside this shell.
 
----
+## Motion
 
-## Component Library
+Motion uses the existing Framer Motion dependency and CSS transitions:
 
-Built on **shadcn/ui** with SIJAYA Agency design tokens.
+- Hero: 800ms staggered entrances with a gentle image zoom and translation linked to scrolling.
+- Sections: once-only 650ms opacity/24px entrances using `ScrollReveal`.
+- Product, industry, and process cards: 60–80ms stagger increments.
+- Buttons: subtle 2px hover lift and a restrained pressed state on pointer devices.
+- Public introductions: 700ms entrance; workspace content: 350ms fade.
+- Menus: short opacity and position entrance.
 
-### Buttons
+Scrolling stays native. Never transform the application root or put fixed navigation inside an animated container. Respect `prefers-reduced-motion` through `MotionConfig`, `useReducedMotion`, and CSS. Reduced-motion users receive immediately visible content and no parallax.
 
-```
-Primary:   bg-[#176B9B] text-white hover:bg-[#102A43]
-Secondary: border border-[#176B9B] text-[#176B9B] hover:bg-blue-50
-Accent:    bg-[#F59E0B] text-white hover:bg-[#D97706]
-Danger:    bg-[#DC2626] text-white
-Ghost:     transparent hover:bg-slate-100
-```
+## Public submission boundary
 
-### Status Badges
+Public supply requests submit directly to `https://api.web3forms.com/submit` using `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`. Keep the existing payload, optional email, and honeypot. Do not call the Express supply-request creation endpoint or Prisma from the public form. Existing database-backed agency records remain available to staff through the API.
 
-```
-pending:          bg-yellow-100 text-yellow-800
-confirmed:        bg-blue-100 text-blue-800
-delivered:        bg-green-100 text-green-800
-failed/cancelled: bg-red-100 text-red-800
-in-progress:      bg-purple-100 text-purple-800
-```
+## Verification
 
-### Cards
-
-```
-bg-white rounded-xl border border-slate-200 shadow-sm p-6
-hover: shadow-md transition-shadow duration-200
-```
-
----
-
-## Navigation
-
-### Public Nav
-- Height: 64px
-- Sticky with blur backdrop on scroll
-- Logo left, links centre-right, CTA rightmost
-
-### Dashboard Sidebar
-- Width: 260px (desktop), collapsible to 64px
-- Background: #102A43 (dark navy)
-- Active item: bg-[#176B9B] text-white
-- Inactive: text-slate-300 hover:bg-[#1a3a57]
-
----
-
-## Logo
-
-SVG wordmark: "SIJAYA Agency" in bold sans-serif + flame/drop icon  
-Files: `/public/logo.svg`, `/public/logo-white.svg`, `/public/logo-mark.svg`
-
----
-
-## Page Layouts
-
-### Public Website
-- Max width: 1280px
-- Hero: full-viewport-height
-- Sections: `py-20`
-- Grid: 12-column, responsive
-
-### Dashboard
-- Sidebar + main content
-- Main content max: none (fills remaining width)
-- Top nav: 64px fixed
-- Content padding: `p-6 md:p-8`
-
----
-
-## Icon System
-
-**Library:** Lucide React  
-Standard icon sizes: 16px (inline), 20px (buttons), 24px (nav)
-
----
-
-## Animation
-
-**Library:** Motion for React (`framer-motion`)
-
-Standard transitions:
-```
-entrance:   { opacity: 0, y: 20 } → { opacity: 1, y: 0 }, duration: 0.4
-stagger:    each child delayed by 0.1s
-hover:      scale: 1.02, duration: 0.15
-page:       fade, duration: 0.3
-```
-
-Do not animate decoratively. Every animation must aid comprehension.
-
----
-
-## Accessibility
-
-- Minimum contrast ratio: 4.5:1 (WCAG AA)
-- All interactive elements keyboard accessible
-- Focus rings visible
-- ARIA labels on icon-only buttons
-- Skip-to-content link
-- Alt text on all images
-
+The redesign was checked at 320, 390, 768, 1024, and 1440px across the 26 active public and operations screens, including horizontal-overflow and heading checks. Check menu dismissal, modal scrolling and focus, form labels, and the public submission destination when changing shared components. A local API/database is required to verify authenticated mutations end to end.

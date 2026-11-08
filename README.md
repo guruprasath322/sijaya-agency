@@ -14,6 +14,8 @@ The responsive website is built with Next.js and includes:
 - A supply request form delivered through Web3Forms
 - Customer, staff, driver, and administration portal pages
 - SIJAYA branding and customer logos
+- A consistent ivory, navy, and gold interface, responsive navigation, and accessible forms
+- Scroll reveals, staggered entrances, gentle image parallax, and reduced-motion support
 
 ## Technology
 
@@ -31,7 +33,7 @@ apps/
   web/       Next.js website and portal
   api/       Express API, Prisma schema, migrations, and seed data
 packages/
-  shared/    Shared TypeScript types and validation schemas
+  shared/    Reserved workspace for future shared types and validation
 docs/        Project, design, and database documentation
 ```
 
@@ -93,7 +95,7 @@ npm run db:generate --workspace=@sijaya/api
 npm run build --workspace=@sijaya/api
 ```
 
-Build all workspaces:
+Build the API and website together (the reserved shared workspace currently has no source to compile):
 
 ```bash
 npm run build
@@ -121,4 +123,4 @@ The custom domain [www.sijaya.in](https://www.sijaya.in) is connected to the web
 
 ## Development acknowledgment
 
-Built and maintained by Guruprasath, with coding, debugging, documentation, and deployment assistance from OpenAI Codex.
+Built and maintained by Guruprasath, with coding, debugging, documentation, and deployment assistance from OpenAI Codex. See [Contributors](CONTRIBUTORS.md) for attribution and [Design system](docs/DESIGN_SYSTEM.md) for interface and motion guidelines.
