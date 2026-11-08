@@ -56,17 +56,17 @@ export default function DashboardOverviewPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-1 border border-blue-200">
-            Operational Dashboard • Single Warehouse Architecture
+            Your agency at a glance
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-[#102A43] tracking-tight">
             Agency Operations Overview
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Real-time telemetry and order dispatch ledger for SIJAYA Agency
+            Keep track of orders, stock levels, and deliveries in one place.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <Link
             href="/dashboard/loads"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm"
@@ -85,7 +85,7 @@ export default function DashboardOverviewPage() {
       </div>
 
       {/* Primary KPI Metrics Strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
         <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#176B9B] flex items-center justify-center flex-shrink-0">
             <ShoppingCart className="w-6 h-6" />
@@ -154,7 +154,7 @@ export default function DashboardOverviewPage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {data?.inventory && data.inventory.length > 0 ? (
             data.inventory.map((inv) => (
               <div key={inv.id} className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
@@ -176,7 +176,7 @@ export default function DashboardOverviewPage() {
               </div>
             ))
           ) : (
-            <div className="col-span-4 text-center py-6 text-xs text-slate-400">
+            <div className="col-span-full text-center py-6 text-xs text-slate-400">
               Inventory initialized. Approve incoming gas loads to populate available stock.
             </div>
           )}

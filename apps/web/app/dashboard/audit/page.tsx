@@ -38,7 +38,7 @@ export default function AuditLogsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Security Audit Logs</h1>
+        <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Audit logs</h1>
         <p className="text-xs text-slate-500 mt-0.5">Immutable record of high-privilege operational adjustments and inventory ledger updates</p>
       </div>
 

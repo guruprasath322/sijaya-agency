@@ -25,12 +25,11 @@ export default function StaffManagementPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Staff & Delivery Driver Roster</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Staff & drivers</h1>
           <p className="text-xs text-slate-500 mt-0.5">Authorised operations personnel, warehouse staff, and fleet delivery drivers</p>
         </div>
 
-        <button
-          onClick={fetchStaff}
+        <button aria-label="Refresh records" onClick={fetchStaff}
           className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B] self-start sm:self-auto"
         >
           <RefreshCw className="w-4 h-4" />

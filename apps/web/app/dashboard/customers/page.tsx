@@ -39,12 +39,11 @@ export default function CustomersManagementPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Customer Database & Business Credit Accounts</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Customers & credit</h1>
           <p className="text-xs text-slate-500 mt-0.5">Manage domestic consumers, commercial enterprises, and approved credit terms</p>
         </div>
 
-        <button
-          onClick={fetchCustomers}
+        <button aria-label="Refresh records" onClick={fetchCustomers}
           className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B] self-start sm:self-auto"
         >
           <RefreshCw className="w-4 h-4" />
@@ -55,7 +54,7 @@ export default function CustomersManagementPage() {
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         <div className="relative flex-1 max-w-md">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-          <input
+          <input aria-label="Search records"
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}

@@ -20,10 +20,10 @@ function StaffPortalInner() {
   const { user, logout } = useAuth();
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="workspace min-h-screen flex flex-col">
       {/* Staff Top Bar */}
-      <header className="bg-[#102A43] text-white p-4 shadow-md flex items-center justify-between sticky top-0 z-30">
-        <div className="flex items-center gap-3">
+      <header className="bg-primary text-white px-4 sm:px-8 py-4 border-b border-white/10 flex items-center justify-between gap-3 sticky top-0 z-30">
+        <div className="flex min-w-0 flex-wrap items-center gap-3">
           <Logo variant="light" size="sm" />
           <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded border border-blue-500/30">
             Staff Desk
@@ -33,14 +33,14 @@ function StaffPortalInner() {
         <div className="flex items-center gap-2">
           <Link
             href="/"
-            className="p-1.5 rounded-lg bg-white/10 text-white hover:bg-white/20 text-xs font-semibold px-3 flex items-center gap-1.5"
+            className="min-h-11 min-w-11 justify-center p-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 text-xs font-semibold px-3 flex items-center gap-1.5"
           >
             <Home className="w-4 h-4" />
             <span>Site</span>
           </Link>
           <button
             onClick={logout}
-            className="p-1.5 rounded-lg bg-red-500/20 text-red-300 hover:bg-red-500/30 text-xs font-semibold px-3 flex items-center gap-1.5"
+            className="min-h-11 min-w-11 justify-center p-2.5 rounded-xl bg-red-500/20 text-red-300 hover:bg-red-500/30 text-xs font-semibold px-3 flex items-center gap-1.5"
           >
             <LogOut className="w-4 h-4" />
             <span>Sign Out</span>
@@ -49,21 +49,21 @@ function StaffPortalInner() {
       </header>
 
       {/* Staff Workspace */}
-      <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-6xl w-full mx-auto space-y-6">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-4 sm:p-6 lg:p-8 max-w-6xl w-full mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">
-            Warehouse Operations & Staff Dispatch Desk
+            Ready for the day ahead.
           </h1>
-          <p className="text-xs text-slate-500 mt-0.5">
+          <p className="text-sm text-slate-500 mt-2">
             Logged in as {user?.staff?.name || user?.email} (Code: {user?.staff?.employeeCode || 'STAFF-01'})
           </p>
         </div>
 
         {/* Action Modules Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           <Link
             href="/dashboard/orders"
-            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#176B9B] transition-all group"
+            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-[#176B9B] transition-all group"
           >
             <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#176B9B] group-hover:bg-[#176B9B] group-hover:text-white transition-colors flex items-center justify-center mb-4">
               <ShoppingCart className="w-6 h-6" />
@@ -76,7 +76,7 @@ function StaffPortalInner() {
 
           <Link
             href="/dashboard/loads"
-            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#176B9B] transition-all group"
+            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-[#176B9B] transition-all group"
           >
             <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors flex items-center justify-center mb-4">
               <Truck className="w-6 h-6" />
@@ -89,7 +89,7 @@ function StaffPortalInner() {
 
           <Link
             href="/dashboard/inventory"
-            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#176B9B] transition-all group"
+            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-[#176B9B] transition-all group"
           >
             <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors flex items-center justify-center mb-4">
               <Boxes className="w-6 h-6" />
@@ -102,7 +102,7 @@ function StaffPortalInner() {
 
           <Link
             href="/dashboard/calendar"
-            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md hover:border-[#176B9B] transition-all group"
+            className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-[#176B9B] transition-all group"
           >
             <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors flex items-center justify-center mb-4">
               <Calendar className="w-6 h-6" />

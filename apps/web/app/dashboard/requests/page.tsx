@@ -44,10 +44,10 @@ export default function SupplyRequestsPage() {
       <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#176B9B]">
-            <Inbox className="h-3.5 w-3.5" /> Website inbox
+            <Inbox className="h-3.5 w-3.5" /> Agency enquiries
           </div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] sm:text-3xl">Supply Requests</h1>
-          <p className="mt-1 text-sm text-slate-500">Requests sent from the public website contact form.</p>
+          <h1 className="text-2xl font-extrabold text-[#102A43] sm:text-3xl">Supply requests</h1>
+          <p className="mt-1 text-sm text-slate-500">Manage existing enquiry records. Public website requests are sent to your email through Web3Forms.</p>
         </div>
         <div className="flex gap-2">
           <select aria-label="Filter requests by status" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="input-field min-w-36">
@@ -70,7 +70,7 @@ export default function SupplyRequestsPage() {
         <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-10 text-center">
           <Inbox className="mx-auto h-8 w-8 text-slate-400" />
           <p className="mt-3 font-semibold text-slate-700">No requests yet</p>
-          <p className="mt-1 text-sm text-slate-500">New website enquiries will appear here.</p>
+          <p className="mt-1 text-sm text-slate-500">Public website requests arrive by email. Existing agency enquiry records appear here.</p>
         </div>
       ) : (
         <div className="grid gap-4">

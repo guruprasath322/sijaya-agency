@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { quotationsApi, Quotation, customersApi, Customer, productsApi, Product } from '@/lib/api';
 import { formatDate, getStatusBadgeClass } from '@/lib/utils';
@@ -65,13 +67,12 @@ export default function DashboardQuotationsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Formal Quotation Generator</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Quotations</h1>
           <p className="text-xs text-slate-500 mt-0.5">Generate, issue, and manage commercial LPG estimates for enterprise accounts</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={fetchQuotations}
+          <button aria-label="Refresh records" onClick={fetchQuotations}
             className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B]"
           >
             <RefreshCw className="w-4 h-4" />
@@ -147,7 +148,7 @@ export default function DashboardQuotationsPage() {
 
       {/* New Quotation Modal */}
       {newModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Create quotation" onClose={() => setNewModalOpen(false)}>
           <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">Generate Formal Quotation</h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -156,11 +157,11 @@ export default function DashboardQuotationsPage() {
 
             <form onSubmit={handleCreate} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Select Customer</label>
-                <select
+                <label htmlFor="quotations-field-1" className="block text-sm font-medium text-slate-700 mb-1">Select Customer</label>
+                <select id="quotations-field-1"
                   value={selectedCustomerId}
                   onChange={(e) => setSelectedCustomerId(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   {customers.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -171,11 +172,11 @@ export default function DashboardQuotationsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">LPG Product Grade</label>
-                <select
+                <label htmlFor="quotations-field-2" className="block text-sm font-medium text-slate-700 mb-1">LPG Product Grade</label>
+                <select id="quotations-field-2"
                   value={selectedProductId}
                   onChange={(e) => setSelectedProductId(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   {products.map((p) => (
                     <option key={p.id} value={p.id}>
@@ -187,59 +188,59 @@ export default function DashboardQuotationsPage() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Quantity</label>
-                  <input
+                  <label htmlFor="quotations-field-3" className="block text-sm font-medium text-slate-700 mb-1">Quantity</label>
+                  <input id="quotations-field-3"
                     type="number"
                     min={1}
                     value={quantity}
                     onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                    className="input-field text-xs"
+                    className="input-field text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Unit Tariff (₹)</label>
-                  <input
+                  <label htmlFor="quotations-field-4" className="block text-sm font-medium text-slate-700 mb-1">Unit Tariff (₹)</label>
+                  <input id="quotations-field-4"
                     type="number"
                     min={0}
                     value={unitPrice}
                     onChange={(e) => setUnitPrice(parseFloat(e.target.value) || 0)}
-                    className="input-field text-xs"
+                    className="input-field text-sm"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Applicable GST %</label>
-                  <input
+                  <label htmlFor="quotations-field-5" className="block text-sm font-medium text-slate-700 mb-1">Applicable GST %</label>
+                  <input id="quotations-field-5"
                     type="number"
                     min={0}
                     max={28}
                     value={taxRate}
                     onChange={(e) => setTaxRate(parseFloat(e.target.value) || 0)}
-                    className="input-field text-xs"
+                    className="input-field text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Delivery / Handling Charges (₹)</label>
-                  <input
+                  <label htmlFor="quotations-field-6" className="block text-sm font-medium text-slate-700 mb-1">Delivery / Handling Charges (₹)</label>
+                  <input id="quotations-field-6"
                     type="number"
                     min={0}
                     value={additionalCharges}
                     onChange={(e) => setAdditionalCharges(parseFloat(e.target.value) || 0)}
-                    className="input-field text-xs"
+                    className="input-field text-sm"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Terms & Notes</label>
-                <input
+                <label htmlFor="quotations-field-7" className="block text-sm font-medium text-slate-700 mb-1">Terms & Notes</label>
+                <input id="quotations-field-7"
                   type="text"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Valid for 30 days from issue, doorstep delivery included"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -267,7 +268,7 @@ export default function DashboardQuotationsPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

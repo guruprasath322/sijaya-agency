@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { brandsApi, Brand } from '@/lib/api';
 import { Sparkles, PlusCircle, Check, X, Eye, EyeOff, Trash2, Edit2, RefreshCw, ShieldCheck } from 'lucide-react';
@@ -98,13 +100,12 @@ export default function BrandManagementPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Homepage Brand Showcase Management</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Brand showcase</h1>
           <p className="text-xs text-slate-500 mt-0.5">Control the public &ldquo;Businesses That Trust SIJAYA Agency&rdquo; continuous carousel</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={fetchBrands}
+          <button aria-label="Refresh records" onClick={fetchBrands}
             className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B]"
           >
             <RefreshCw className="w-4 h-4" />
@@ -212,7 +213,7 @@ export default function BrandManagementPage() {
 
       {/* Add / Edit Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Organisation details" onClose={() => setModalOpen(false)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">
               {editingId ? 'Edit Organisation Record' : 'Add Organisation to Showcase'}
@@ -223,47 +224,47 @@ export default function BrandManagementPage() {
 
             <form onSubmit={handleSave} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">English Business Name *</label>
-                <input
+                <label htmlFor="brands-field-1" className="block text-sm font-medium text-slate-700 mb-1">English Business Name *</label>
+                <input id="brands-field-1"
                   type="text"
                   required
                   value={nameEnglish}
                   onChange={(e) => setNameEnglish(e.target.value)}
                   placeholder="e.g. EBET College"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Tamil Business Name (Optional)</label>
-                <input
+                <label htmlFor="brands-field-2" className="block text-sm font-medium text-slate-700 mb-1">Tamil Business Name (Optional)</label>
+                <input id="brands-field-2"
                   type="text"
                   value={nameTamil}
                   onChange={(e) => setNameTamil(e.target.value)}
                   placeholder="e.g. பழனியாண்டவர் மில்"
-                  className="input-field text-xs font-tamil"
+                  className="input-field text-sm font-tamil"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Category</label>
-                  <input
+                  <label htmlFor="brands-field-3" className="block text-sm font-medium text-slate-700 mb-1">Category</label>
+                  <input id="brands-field-3"
                     type="text"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     placeholder="e.g. Education, Restaurant"
-                    className="input-field text-xs"
+                    className="input-field text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Display Order</label>
-                  <input
+                  <label htmlFor="brands-field-4" className="block text-sm font-medium text-slate-700 mb-1">Display Order</label>
+                  <input id="brands-field-4"
                     type="number"
                     min={1}
                     value={displayOrder}
                     onChange={(e) => setDisplayOrder(parseInt(e.target.value) || 1)}
-                    className="input-field text-xs"
+                    className="input-field text-sm"
                   />
                 </div>
               </div>
@@ -307,7 +308,7 @@ export default function BrandManagementPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

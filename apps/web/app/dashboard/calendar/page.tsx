@@ -20,25 +20,26 @@ export default function DeliveryCalendarPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Delivery Scheduling Calendar</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Delivery calendar</h1>
           <p className="text-xs text-slate-500 mt-0.5">Visual dispatch timeline for domestic and recurring commercial deliveries</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50">
+          <button aria-label="Previous month" className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50">
             <ChevronLeft className="w-4 h-4" />
           </button>
           <span className="text-xs font-bold text-[#102A43] px-3 py-1.5 rounded-lg bg-white border border-slate-200">
             November 2026
           </span>
-          <button className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50">
+          <button aria-label="Next month" className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </div>
 
       {/* Week Calendar Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-7 gap-3">
+      <div className="overflow-x-auto pb-3" role="region" aria-label="Weekly delivery schedule" tabIndex={0}>
+      <div className="grid grid-cols-1 gap-3 sm:min-w-[1120px] sm:grid-cols-7">
         {days.map((d, i) => (
           <div
             key={i}
@@ -76,6 +77,7 @@ export default function DeliveryCalendarPage() {
             <span className="text-[9px] text-slate-400 mt-2 block">Driver fleet scheduled</span>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

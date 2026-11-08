@@ -79,7 +79,7 @@ export default function WebsiteContentCMSPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Website Content Management (CMS)</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Website content</h1>
           <p className="text-xs text-slate-500 mt-0.5">
             Modify public landing page headlines, business contacts, and operational claims without changing code
           </p>
@@ -101,8 +101,8 @@ export default function WebsiteContentCMSPage() {
           </h2>
 
           <div>
-            <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Hero Main Headline</label>
-            <input
+            <label htmlFor="content-field-1" className="block text-sm font-medium text-slate-700 mb-1">Hero Main Headline</label>
+            <input id="content-field-1"
               type="text"
               required
               value={heroHeadline}
@@ -112,13 +112,13 @@ export default function WebsiteContentCMSPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Hero Supporting Description</label>
-            <textarea
+            <label htmlFor="content-field-2" className="block text-sm font-medium text-slate-700 mb-1">Hero Supporting Description</label>
+            <textarea id="content-field-2"
               rows={3}
               required
               value={heroDesc}
               onChange={(e) => setHeroDesc(e.target.value)}
-              className="input-field text-xs resize-none"
+              className="input-field text-sm resize-none"
             />
           </div>
         </div>
@@ -130,13 +130,13 @@ export default function WebsiteContentCMSPage() {
           </h2>
 
           <div>
-            <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Agency Overview Text</label>
-            <textarea
+            <label htmlFor="content-field-3" className="block text-sm font-medium text-slate-700 mb-1">Agency Overview Text</label>
+            <textarea id="content-field-3"
               rows={4}
               required
               value={aboutText}
               onChange={(e) => setAboutText(e.target.value)}
-              className="input-field text-xs resize-none"
+              className="input-field text-sm resize-none"
             />
           </div>
         </div>
@@ -148,55 +148,55 @@ export default function WebsiteContentCMSPage() {
           </h2>
 
           <div>
-            <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Depot / Office Physical Address</label>
-            <input
+            <label htmlFor="content-field-4" className="block text-sm font-medium text-slate-700 mb-1">Depot / Office Physical Address</label>
+            <input id="content-field-4"
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="input-field text-xs"
+              className="input-field text-sm"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Official Contact Phone</label>
-              <input
+              <label htmlFor="content-field-5" className="block text-sm font-medium text-slate-700 mb-1">Official Contact Phone</label>
+              <input id="content-field-5"
                 type="text"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="input-field text-xs"
+                className="input-field text-sm"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase text-slate-700 mb-1">WhatsApp Ordering Number</label>
-              <input
+              <label htmlFor="content-field-6" className="block text-sm font-medium text-slate-700 mb-1">WhatsApp Ordering Number</label>
+              <input id="content-field-6"
                 type="text"
                 value={whatsapp}
                 onChange={(e) => setWhatsapp(e.target.value)}
-                className="input-field text-xs"
+                className="input-field text-sm"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Official Email Address</label>
-              <input
+              <label htmlFor="content-field-7" className="block text-sm font-medium text-slate-700 mb-1">Official Email Address</label>
+              <input id="content-field-7"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="input-field text-xs"
+                className="input-field text-sm"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Operating Business Hours</label>
-              <input
+              <label htmlFor="content-field-8" className="block text-sm font-medium text-slate-700 mb-1">Operating Business Hours</label>
+              <input id="content-field-8"
                 type="text"
                 value={hours}
                 onChange={(e) => setHours(e.target.value)}
-                className="input-field text-xs"
+                className="input-field text-sm"
               />
             </div>
           </div>

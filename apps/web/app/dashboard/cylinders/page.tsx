@@ -69,13 +69,13 @@ export default function CylindersManagementPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Physical Cylinder Asset Tracking</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Cylinder tracking</h1>
           <p className="text-xs text-slate-500 mt-0.5">Track serial numbers, tare weights, client deployments, and valve safety inspections</p>
         </div>
       </div>
 
       {/* KPI Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
           <div className="text-[11px] font-bold text-slate-500 uppercase">Available in Warehouse</div>
           <div className="text-2xl font-black text-emerald-600 mt-1">
@@ -106,7 +106,7 @@ export default function CylindersManagementPage() {
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         <div className="relative flex-1 max-w-xs">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-          <input
+          <input aria-label="Search records"
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}

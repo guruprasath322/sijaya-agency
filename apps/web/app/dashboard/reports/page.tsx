@@ -21,7 +21,7 @@ export default function AnalyticsReportsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Business Reports & Ledger Auditing</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Reports & exports</h1>
           <p className="text-xs text-slate-500 mt-0.5">Export operational and financial logs for accounting and regulatory reconciliation</p>
         </div>
 

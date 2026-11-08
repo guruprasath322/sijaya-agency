@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { inventoryApi, InventoryRecord, StockMovement, productsApi, Product } from '@/lib/api';
 import { formatDate, formatDateTime } from '@/lib/utils';
@@ -64,13 +66,12 @@ export default function InventoryLedgerPage() {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Warehouse Inventory & Stock Ledger</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Inventory & stock movements</h1>
           <p className="text-xs text-slate-500 mt-0.5">Accurate cylinder balance accounting and immutable movement transaction history</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={fetchInventory}
+          <button aria-label="Refresh records" onClick={fetchInventory}
             className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B]"
           >
             <RefreshCw className="w-4 h-4" />
@@ -86,7 +87,7 @@ export default function InventoryLedgerPage() {
       </div>
 
       {/* Product Stock Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
         {inventory.map((inv) => (
           <div key={inv.id} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
@@ -181,7 +182,7 @@ export default function InventoryLedgerPage() {
 
       {/* Manual Stock Adjustment Modal */}
       {adjustModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Adjust inventory" onClose={() => setAdjustModalOpen(false)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">Manual Stock Adjustment</h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -196,11 +197,11 @@ export default function InventoryLedgerPage() {
 
             <form onSubmit={handleAdjust} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Select Product</label>
-                <select
+                <label htmlFor="inventory-field-1" className="block text-sm font-medium text-slate-700 mb-1">Select Product</label>
+                <select id="inventory-field-1"
                   value={selectedProduct}
                   onChange={(e) => setSelectedProduct(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   {products.map((p) => (
                     <option key={p.id} value={p.id}>
@@ -211,7 +212,7 @@ export default function InventoryLedgerPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Adjustment Type</label>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Adjustment Type</label>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     type="button"
@@ -239,26 +240,26 @@ export default function InventoryLedgerPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Quantity</label>
-                <input
+                <label htmlFor="inventory-field-2" className="block text-sm font-medium text-slate-700 mb-1">Quantity</label>
+                <input id="inventory-field-2"
                   type="number"
                   min={1}
                   required
                   value={adjustQty}
                   onChange={(e) => setAdjustQty(parseInt(e.target.value) || 1)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Mandatory Reason / Audit Notes</label>
-                <input
+                <label htmlFor="inventory-field-3" className="block text-sm font-medium text-slate-700 mb-1">Mandatory Reason / Audit Notes</label>
+                <input id="inventory-field-3"
                   type="text"
                   required
                   value={adjustNotes}
                   onChange={(e) => setAdjustNotes(e.target.value)}
                   placeholder="e.g. Physical inventory count reconciliation"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -279,7 +280,7 @@ export default function InventoryLedgerPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

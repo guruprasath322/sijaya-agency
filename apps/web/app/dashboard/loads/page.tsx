@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { loadsApi, GasLoad, productsApi, Product } from '@/lib/api';
 import { formatDate, getStatusBadgeClass } from '@/lib/utils';
@@ -38,7 +40,7 @@ export default function IncomingLoadsPage() {
     productsApi.getAll().then((data) => {
       setProducts(data);
       if (data.length > 0) setSelectedProduct(data[0].id);
-    });
+    }).catch(() => setProducts([]));
   }, []);
 
   const handleCreateLoad = async (e: React.FormEvent) => {
@@ -90,13 +92,12 @@ export default function IncomingLoadsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Supplier Gas Loads (Aegis Pure gas)</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Incoming loads</h1>
           <p className="text-xs text-slate-500 mt-0.5">Manage intake manifests, arrival tally inspection, and manager ledger approvals</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={fetchLoads}
+          <button aria-label="Refresh records" onClick={fetchLoads}
             className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B]"
           >
             <RefreshCw className="w-4 h-4" />
@@ -222,7 +223,7 @@ export default function IncomingLoadsPage() {
 
       {/* New Load Modal */}
       {newLoadOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Record incoming load" onClose={() => setNewLoadOpen(false)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">Record Aegis Pure gas Dispatch</h3>
             <p className="text-xs text-slate-500 mb-4">
@@ -231,8 +232,8 @@ export default function IncomingLoadsPage() {
 
             <form onSubmit={handleCreateLoad} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Supplier</label>
-                <input
+                <label htmlFor="loads-field-1" className="block text-sm font-medium text-slate-700 mb-1">Supplier</label>
+                <input id="loads-field-1"
                   type="text"
                   disabled
                   value="Aegis Pure gas (Authorised Supplier)"
@@ -241,11 +242,11 @@ export default function IncomingLoadsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Product Manifest</label>
-                <select
+                <label htmlFor="loads-field-2" className="block text-sm font-medium text-slate-700 mb-1">Product Manifest</label>
+                <select id="loads-field-2"
                   value={selectedProduct}
                   onChange={(e) => setSelectedProduct(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   {products.map((p) => (
                     <option key={p.id} value={p.id}>
@@ -256,36 +257,36 @@ export default function IncomingLoadsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Expected Cylinder / Volume Qty</label>
-                <input
+                <label htmlFor="loads-field-3" className="block text-sm font-medium text-slate-700 mb-1">Expected Cylinder / Volume Qty</label>
+                <input id="loads-field-3"
                   type="number"
                   required
                   min={1}
                   value={expectedQty}
                   onChange={(e) => setExpectedQty(parseInt(e.target.value) || 1)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Transport Vehicle Reg No.</label>
-                <input
+                <label htmlFor="loads-field-4" className="block text-sm font-medium text-slate-700 mb-1">Transport Vehicle Reg No.</label>
+                <input id="loads-field-4"
                   type="text"
                   value={vehicleNumber}
                   onChange={(e) => setVehicleNumber(e.target.value)}
                   placeholder="e.g. TN-57-AB-9876"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Supplier Dispatch Invoice Ref</label>
-                <input
+                <label htmlFor="loads-field-5" className="block text-sm font-medium text-slate-700 mb-1">Supplier Dispatch Invoice Ref</label>
+                <input id="loads-field-5"
                   type="text"
                   value={invoiceRef}
                   onChange={(e) => setInvoiceRef(e.target.value)}
                   placeholder="e.g. AGIS-DISP-4890"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -306,12 +307,12 @@ export default function IncomingLoadsPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
 
       {/* Record Arrival & Tally Inspection Modal */}
       {arrivedLoad && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Record load arrival" onClose={() => setArrivedLoad(null)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">
               Record Arrival Inspection: {arrivedLoad.loadCode}
@@ -323,46 +324,46 @@ export default function IncomingLoadsPage() {
             <form onSubmit={handleRecordArrival} className="space-y-4">
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[11px] font-bold uppercase text-emerald-800 mb-1">Received *</label>
-                  <input
+                  <label htmlFor="loads-field-6" className="block text-[11px] font-bold uppercase text-emerald-800 mb-1">Received *</label>
+                  <input id="loads-field-6"
                     type="number"
                     min={0}
                     required
                     value={receivedQty}
                     onChange={(e) => setReceivedQty(parseInt(e.target.value) || 0)}
-                    className="input-field text-xs font-bold"
+                    className="input-field text-sm font-bold"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-bold uppercase text-red-800 mb-1">Damaged</label>
-                  <input
+                  <label htmlFor="loads-field-7" className="block text-[11px] font-bold uppercase text-red-800 mb-1">Damaged</label>
+                  <input id="loads-field-7"
                     type="number"
                     min={0}
                     value={damagedQty}
                     onChange={(e) => setDamagedQty(parseInt(e.target.value) || 0)}
-                    className="input-field text-xs font-bold"
+                    className="input-field text-sm font-bold"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-bold uppercase text-amber-800 mb-1">Missing</label>
-                  <input
+                  <label htmlFor="loads-field-8" className="block text-[11px] font-bold uppercase text-amber-800 mb-1">Missing</label>
+                  <input id="loads-field-8"
                     type="number"
                     min={0}
                     value={missingQty}
                     onChange={(e) => setMissingQty(parseInt(e.target.value) || 0)}
-                    className="input-field text-xs font-bold"
+                    className="input-field text-sm font-bold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Inspection Notes</label>
-                <input
+                <label htmlFor="loads-field-9" className="block text-sm font-medium text-slate-700 mb-1">Inspection Notes</label>
+                <input id="loads-field-9"
                   type="text"
                   value={inspectionNotes}
                   onChange={(e) => setInspectionNotes(e.target.value)}
                   placeholder="e.g. 2 cylinders arrived with damaged valve caps"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -383,7 +384,7 @@ export default function IncomingLoadsPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

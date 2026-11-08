@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Logo } from '@/components/shared/Logo';
@@ -68,10 +70,10 @@ function DriverPortalInner() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col">
+    <div className="workspace min-h-screen flex flex-col">
       {/* Driver Mobile Top Header */}
-      <header className="bg-[#102A43] text-white p-4 shadow-md flex items-center justify-between sticky top-0 z-30">
-        <div className="flex items-center gap-3">
+      <header className="bg-primary text-white px-4 sm:px-8 py-4 border-b border-white/10 flex items-center justify-between gap-3 sticky top-0 z-30">
+        <div className="flex min-w-0 flex-wrap items-center gap-3">
           <Logo variant="light" size="sm" />
           <span className="text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30">
             Driver App
@@ -81,15 +83,15 @@ function DriverPortalInner() {
         <div className="flex items-center gap-2">
           <button
             onClick={fetchMyDeliveries}
-            className="p-1.5 rounded-lg bg-white/10 text-white"
-            title="Refresh"
+            className="min-h-11 min-w-11 justify-center p-2.5 rounded-xl bg-white/10 text-white"
+            aria-label="Refresh deliveries" title="Refresh"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
           <button
             onClick={logout}
-            className="p-1.5 rounded-lg bg-red-500/20 text-red-300"
-            title="Sign Out"
+            className="min-h-11 min-w-11 justify-center p-2.5 rounded-xl bg-red-500/20 text-red-300"
+            aria-label="Sign out" title="Sign Out"
           >
             <LogOut className="w-4 h-4" />
           </button>
@@ -97,23 +99,24 @@ function DriverPortalInner() {
       </header>
 
       {/* Driver Info Strip */}
-      <div className="bg-[#176B9B] text-white px-4 py-3 flex items-center justify-between text-xs">
+      <div className="bg-white text-primary px-4 sm:px-8 py-5 flex flex-wrap items-center justify-between gap-4 text-sm border-b border-slate-200">
         <div>
           <span>Driver: <strong>{user?.staff?.name || user?.email}</strong></span>
-          <div className="text-[11px] text-blue-100">Depot: Central Regional Warehouse</div>
+          <div className="text-[11px] text-slate-500">Depot: Central Regional Warehouse</div>
         </div>
         <div className="text-right">
-          <span className="font-bold text-amber-300">{deliveries.length} Assigned</span>
-          <div className="text-[11px] text-blue-100">Today&apos;s Route</div>
+          <span className="font-bold text-corporate">{deliveries.length} Assigned</span>
+          <div className="text-[11px] text-slate-500">Today&apos;s Route</div>
         </div>
       </div>
 
       {/* Main Delivery Queue Cards */}
-      <main className="flex-1 p-4 max-w-lg w-full mx-auto space-y-4">
+      <main id="main-content" tabIndex={-1} className="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto grid content-start items-start grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="col-span-full mb-2"><p className="eyebrow mb-3">Driver workspace</p><h1 className="text-3xl font-bold">Your deliveries, at a glance.</h1><p className="mt-3 text-sm text-slate-500">Check your route, contact customers, and record each handover.</p></div>
         {loading ? (
-          <div className="py-16 text-center text-slate-400 text-xs">Loading assigned route...</div>
+          <div className="col-span-full py-16 text-center text-slate-400 text-xs">Loading assigned route...</div>
         ) : deliveries.length === 0 ? (
-          <div className="p-8 text-center bg-white rounded-2xl shadow-sm border border-slate-200 mt-6">
+          <div className="col-span-full p-8 sm:p-12 text-center bg-white rounded-2xl shadow-sm border border-slate-200 mt-6">
             <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-3" />
             <h2 className="text-base font-bold text-[#102A43]">All Deliveries Completed!</h2>
             <p className="text-xs text-slate-500 mt-1">
@@ -173,7 +176,7 @@ function DriverPortalInner() {
                 </div>
 
                 {/* Cylinder Summary */}
-                <div className="text-xs font-semibold text-slate-800 flex justify-between border-t border-slate-100 pt-3">
+                <div className="text-xs font-semibold text-slate-800 flex flex-wrap gap-2 justify-between border-t border-slate-100 pt-3">
                   <span>Cylinders to deliver:</span>
                   <span className="font-bold text-[#102A43]">
                     {items?.map((i) => `${i.product?.name} (x${i.quantity})`).join(', ') || '1x LPG Cylinder'}
@@ -224,7 +227,7 @@ function DriverPortalInner() {
 
       {/* Handover Proof / Failure Modal */}
       {activeDelivery && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Delivery handover" onClose={() => setActiveDelivery(null)}>
           <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">
               {actionType === 'DELIVER' ? 'Record Delivery Proof' : 'Record Delivery Issue'}
@@ -235,10 +238,10 @@ function DriverPortalInner() {
               {actionType === 'DELIVER' ? (
                 <>
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                    <label htmlFor="driver-field-1" className="block text-xs font-bold uppercase text-slate-700 mb-1">
                       Receiver Person Name *
                     </label>
-                    <input
+                    <input id="driver-field-1"
                       type="text"
                       required
                       value={receiverName}
@@ -249,10 +252,10 @@ function DriverPortalInner() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                    <label htmlFor="driver-field-2" className="block text-xs font-bold uppercase text-slate-700 mb-1">
                       Inspection Handover Notes
                     </label>
-                    <input
+                    <input id="driver-field-2"
                       type="text"
                       value={proofNotes}
                       onChange={(e) => setProofNotes(e.target.value)}
@@ -262,10 +265,10 @@ function DriverPortalInner() {
                 </>
               ) : (
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-700 mb-1">
+                  <label htmlFor="driver-field-3" className="block text-xs font-bold uppercase text-slate-700 mb-1">
                     Failure Reason *
                   </label>
-                  <select
+                  <select id="driver-field-3"
                     value={failReason}
                     onChange={(e) => setFailReason(e.target.value)}
                     className="input-field text-xs"
@@ -297,7 +300,7 @@ function DriverPortalInner() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

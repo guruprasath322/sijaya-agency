@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { deliveriesApi, Delivery } from '@/lib/api';
 import { formatDate, getStatusBadgeClass } from '@/lib/utils';
@@ -33,12 +35,11 @@ export default function DeliveriesDispatchPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Delivery Dispatch Operations</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Delivery dispatch</h1>
           <p className="text-xs text-slate-500 mt-0.5">Fleet route assignment, real-time driver delivery status, and verified proofs of handover</p>
         </div>
 
-        <button
-          onClick={fetchDeliveries}
+        <button aria-label="Refresh records" onClick={fetchDeliveries}
           className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B] self-start sm:self-auto"
         >
           <RefreshCw className="w-4 h-4" />
@@ -126,7 +127,7 @@ export default function DeliveriesDispatchPage() {
 
       {/* Proof Modal */}
       {activeProof && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Delivery proof" onClose={() => setActiveProof(null)}>
           <div className="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative text-center">
             <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3">
               <CheckCircle2 className="w-6 h-6" />
@@ -146,7 +147,7 @@ export default function DeliveriesDispatchPage() {
               Close
             </button>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

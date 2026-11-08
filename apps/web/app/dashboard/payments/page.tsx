@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { paymentsApi, Payment, customersApi, Customer } from '@/lib/api';
 import { formatDate } from '@/lib/utils';
@@ -53,13 +55,12 @@ export default function DashboardPaymentsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Payments & Settlement Ledger</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Payments & invoices</h1>
           <p className="text-xs text-slate-500 mt-0.5">Record customer settlements, bank transfers, UPI and cash on delivery collections</p>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={fetchPayments}
+          <button aria-label="Refresh records" onClick={fetchPayments}
             className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B]"
           >
             <RefreshCw className="w-4 h-4" />
@@ -116,18 +117,18 @@ export default function DashboardPaymentsPage() {
       </div>
 
       {modalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Record payment" onClose={() => setModalOpen(false)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">Record Payment Settlement</h3>
             <p className="text-xs text-slate-500 mb-4">Post payment credit to customer account ledger.</p>
 
             <form onSubmit={handleRecord} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Customer Account</label>
-                <select
+                <label htmlFor="payments-field-1" className="block text-sm font-medium text-slate-700 mb-1">Customer Account</label>
+                <select id="payments-field-1"
                   value={selectedCustomerId}
                   onChange={(e) => setSelectedCustomerId(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   {customers.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -138,23 +139,23 @@ export default function DashboardPaymentsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Payment Amount (₹)</label>
-                <input
+                <label htmlFor="payments-field-2" className="block text-sm font-medium text-slate-700 mb-1">Payment Amount (₹)</label>
+                <input id="payments-field-2"
                   type="number"
                   min={1}
                   required
                   value={amount}
                   onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
-                  className="input-field text-xs font-bold"
+                  className="input-field text-sm font-bold"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Payment Method</label>
-                <select
+                <label htmlFor="payments-field-3" className="block text-sm font-medium text-slate-700 mb-1">Payment Method</label>
+                <select id="payments-field-3"
                   value={method}
                   onChange={(e) => setMethod(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   <option value="UPI">UPI / QR Code</option>
                   <option value="CASH">Cash on Delivery (COD)</option>
@@ -164,13 +165,13 @@ export default function DashboardPaymentsPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Transaction Ref / Cheque No.</label>
-                <input
+                <label htmlFor="payments-field-4" className="block text-sm font-medium text-slate-700 mb-1">Transaction Ref / Cheque No.</label>
+                <input id="payments-field-4"
                   type="text"
                   value={reference}
                   onChange={(e) => setReference(e.target.value)}
                   placeholder="e.g. UPI-983719823 or CHQ-00129"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -191,7 +192,7 @@ export default function DashboardPaymentsPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

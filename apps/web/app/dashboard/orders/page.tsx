@@ -1,5 +1,7 @@
 'use client';
 
+import { Modal } from '@/components/shared/Modal';
+
 import React, { useState, useEffect } from 'react';
 import { ordersApi, Order, staffApi, Staff, deliveriesApi } from '@/lib/api';
 import { formatDate, formatDateTime, getStatusBadgeClass } from '@/lib/utils';
@@ -72,12 +74,12 @@ export default function DashboardOrdersPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Order Management Ledger</h1>
+          <h1 className="text-2xl font-extrabold text-[#102A43] tracking-tight">Orders</h1>
           <p className="text-xs text-slate-500 mt-0.5">Track, verify, schedule and update all customer cylinder orders</p>
         </div>
 
         <button
-          onClick={fetchOrders}
+          aria-label="Refresh orders" onClick={fetchOrders}
           className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 hover:text-[#176B9B] self-start sm:self-auto"
         >
           <RefreshCw className="w-4 h-4" />
@@ -88,7 +90,7 @@ export default function DashboardOrdersPage() {
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         <div className="relative flex-1 max-w-md">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-          <input
+          <input aria-label="Search records"
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -195,7 +197,7 @@ export default function DashboardOrdersPage() {
 
       {/* Change Status Modal */}
       {selectedOrder && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Update order status" onClose={() => setSelectedOrder(null)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">
               Update Order Status: {selectedOrder.orderCode}
@@ -206,11 +208,11 @@ export default function DashboardOrdersPage() {
 
             <form onSubmit={handleStatusUpdate} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">New Status</label>
-                <select
+                <label htmlFor="orders-field-1" className="block text-sm font-medium text-slate-700 mb-1">New Status</label>
+                <select id="orders-field-1"
                   value={newStatus}
                   onChange={(e) => setNewStatus(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   <option value="PENDING">PENDING</option>
                   <option value="CONFIRMED">CONFIRMED (Stock verified)</option>
@@ -223,13 +225,13 @@ export default function DashboardOrdersPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Status Notes / Reason</label>
-                <input
+                <label htmlFor="orders-field-2" className="block text-sm font-medium text-slate-700 mb-1">Status Notes / Reason</label>
+                <input id="orders-field-2"
                   type="text"
                   value={statusNotes}
                   onChange={(e) => setStatusNotes(e.target.value)}
                   placeholder="e.g. Stock confirmed at warehouse, driver notified"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -250,12 +252,12 @@ export default function DashboardOrdersPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
 
       {/* Assign Delivery Modal */}
       {assignOrder && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+        <Modal label="Assign a delivery" onClose={() => setAssignOrder(null)}>
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
             <h3 className="text-lg font-bold text-[#102A43] mb-1">
               Assign Dispatch Driver
@@ -266,11 +268,11 @@ export default function DashboardOrdersPage() {
 
             <form onSubmit={handleAssignDelivery} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Select Driver</label>
-                <select
+                <label htmlFor="orders-field-3" className="block text-sm font-medium text-slate-700 mb-1">Select Driver</label>
+                <select id="orders-field-3"
                   value={selectedDriver}
                   onChange={(e) => setSelectedDriver(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 >
                   <option value="">Select Authorised Driver</option>
                   {drivers.map((drv) => (
@@ -282,23 +284,23 @@ export default function DashboardOrdersPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Vehicle Registration No.</label>
-                <input
+                <label htmlFor="orders-field-4" className="block text-sm font-medium text-slate-700 mb-1">Vehicle Registration No.</label>
+                <input id="orders-field-4"
                   type="text"
                   value={vehicleNumber}
                   onChange={(e) => setVehicleNumber(e.target.value)}
                   placeholder="e.g. TN-57-AB-1234"
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Scheduled Delivery Date</label>
-                <input
+                <label htmlFor="orders-field-5" className="block text-sm font-medium text-slate-700 mb-1">Scheduled Delivery Date</label>
+                <input id="orders-field-5"
                   type="date"
                   value={deliveryDate}
                   onChange={(e) => setDeliveryDate(e.target.value)}
-                  className="input-field text-xs"
+                  className="input-field text-sm"
                 />
               </div>
 
@@ -319,7 +321,7 @@ export default function DashboardOrdersPage() {
               </div>
             </form>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );
