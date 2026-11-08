@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { FileEdit, CheckCircle, CalendarClock, Truck } from 'lucide-react';
 
 export function HowItWorksSection() {
@@ -9,7 +10,7 @@ export function HowItWorksSection() {
       number: '01',
       icon: FileEdit,
       title: 'Submit Requirement',
-      description: 'Book domestic refills or submit commercial bulk quantity requests through a phone call.',
+      description: 'Send a supply request online, call us, or message us on WhatsApp.',
     },
     {
       number: '02',
@@ -32,17 +33,17 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section className="py-14 sm:py-16 md:py-28 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#F7F6F2] relative">
+      <div className="site-container">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
             Simple 4-Step Process
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            How Gas Distribution Works at SIJAYA Agency
+          <h2 className="section-heading text-[#102A43] tracking-tight">
+            From your request to your doorstep.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            A transparent and structured fulfillment workflow ensuring safety, accountability, and on-time cylinder replacement.
+            Four straightforward steps. One team taking care of the details.
           </p>
         </div>
 
@@ -51,9 +52,9 @@ export function HowItWorksSection() {
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
-              <div
+              <ScrollReveal delay={idx * 0.08}
                 key={idx}
-                className="relative flex flex-col p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#176B9B]/50 transition-all group"
+                className="relative flex flex-col p-6 rounded-2xl bg-white border border-slate-200/80 hover:border-[#176B9B]/50 transition-all group"
               >
                 {/* Step Number Top Pill */}
                 <div className="flex items-center justify-between mb-6">
@@ -67,7 +68,7 @@ export function HowItWorksSection() {
 
                 <h3 className="text-lg font-bold text-[#102A43] mb-2">{step.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

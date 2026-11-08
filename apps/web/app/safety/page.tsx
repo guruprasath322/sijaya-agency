@@ -1,7 +1,10 @@
-'use client';
-import React from 'react';
-import { Navbar } from '@/components/layout/Navbar';
+import { PublicLayout } from '@/components/layout/PublicLayout';
 import { SafetySection } from '@/components/sections/SafetySection';
-import { Footer } from '@/components/layout/Footer';
-import { FloatingWidgets } from '@/components/layout/FloatingWidgets';
-export default function SafetyPage() { return <div className="min-h-screen flex flex-col"><Navbar/><main className="flex-1 pt-16"><SafetySection/></main><Footer/><FloatingWidgets/></div>; }
+
+export default function SafetyPage() {
+  return (
+    <PublicLayout eyebrow='Safety' title='Safety starts with small steps.' description='Practical guidance for storing, handling, and using your LPG cylinders with care.'>
+      <SafetySection />
+    </PublicLayout>
+  );
+}

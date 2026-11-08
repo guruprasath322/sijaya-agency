@@ -38,6 +38,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background antialiased">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <PageMotion>{children}</PageMotion>
       </body>
     </html>

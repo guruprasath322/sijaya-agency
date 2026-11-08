@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import { Building, Utensils, BedDouble, Bird, GraduationCap, Cake, Factory, CalendarCheck, ShieldCheck, ArrowRight } from 'lucide-react';
 
 export function BusinessSolutionsSection() {
@@ -14,21 +15,21 @@ export function BusinessSolutionsSection() {
   ];
 
   return (
-    <section id="business" className="py-14 sm:py-16 md:py-28 bg-[#102A43] text-white relative overflow-hidden">
+    <section id="business" className="py-16 sm:py-20 lg:py-24 bg-[#102A43] text-white relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#176B9B]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+      <div className="site-container relative z-10">
+        <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-3 border border-white/10">
             Enterprise Solutions
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Engineered for Commercial Continuity
+          <h2 className="section-heading tracking-tight text-white">
+            Your business runs on reliability.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Never halt your ovens, stoves or brooders. SIJAYA Agency designs customized recurring gas supply arrangements for institutions and commercial enterprises.
+            Busy kitchens. Growing institutions. Essential industries. We work with your team to plan a supply that keeps up.
           </p>
         </div>
 
@@ -37,22 +38,22 @@ export function BusinessSolutionsSection() {
           {industries.map((ind, i) => {
             const Icon = ind.icon;
             return (
-              <div
+              <ScrollReveal delay={i * 0.06}
                 key={i}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-200"
+                className="p-6 rounded-2xl bg-white/[0.035] border border-white/10 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-200"
               >
                 <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 mb-4">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{ind.name}</h3>
                 <p className="text-sm text-slate-300 leading-relaxed">{ind.desc}</p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* Feature Banner: Recurring Supply Arrangement */}
-        <div className="rounded-2xl bg-gradient-to-r from-[#176B9B] to-[#1E3A52] p-8 md:p-10 border border-white/15 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="rounded-2xl bg-[#1C3B52] p-6 sm:p-8 md:p-10 border border-white/15 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-left">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-300">
               <CalendarCheck className="w-4 h-4" />
@@ -66,10 +67,10 @@ export function BusinessSolutionsSection() {
             </p>
           </div>
 
-          <div className="flex-shrink-0">
+          <div className="w-full shrink-0 lg:w-auto">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-base shadow-lg transition-all"
+              className="inline-flex w-full items-center justify-center gap-2.5 px-5 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-sm shadow-lg transition-all"
             >
               <span>Request a Business Quotation</span>
               <ArrowRight className="w-5 h-5 text-slate-950" />

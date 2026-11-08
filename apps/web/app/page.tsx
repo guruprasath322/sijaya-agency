@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Navbar } from '@/components/layout/Navbar';
+import { PublicLayout } from '@/components/layout/PublicLayout';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { BrandShowcase } from '@/components/sections/BrandShowcase';
 import { AboutSection } from '@/components/sections/AboutSection';
@@ -11,9 +11,19 @@ import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
 import { ProductShowcase } from '@/components/sections/ProductShowcase';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ContactSection } from '@/components/sections/ContactSection';
-import { Footer } from '@/components/layout/Footer';
-import { FloatingWidgets } from '@/components/layout/FloatingWidgets';
 
 export default function HomePage() {
-  return <div className="min-h-screen flex flex-col bg-white text-[#102A43]"><Navbar /><main className="flex-1"><HeroSection /><BrandShowcase /><AboutSection /><ServicesSection /><BusinessSolutionsSection /><HowItWorksSection /><ProductShowcase /><FAQSection /><ContactSection /></main><Footer /><FloatingWidgets /></div>;
+  return (
+    <PublicLayout>
+      <HeroSection />
+      <BrandShowcase />
+      <AboutSection />
+      <ServicesSection />
+      <BusinessSolutionsSection />
+      <HowItWorksSection />
+      <ProductShowcase />
+      <FAQSection />
+      <ContactSection />
+    </PublicLayout>
+  );
 }

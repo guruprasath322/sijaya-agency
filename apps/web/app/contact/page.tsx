@@ -1,11 +1,10 @@
-'use client';
-
-import React from 'react';
-import { Navbar } from '@/components/layout/Navbar';
+import { PublicLayout } from '@/components/layout/PublicLayout';
 import { ContactSection } from '@/components/sections/ContactSection';
-import { Footer } from '@/components/layout/Footer';
-import { FloatingWidgets } from '@/components/layout/FloatingWidgets';
 
 export default function ContactPage() {
-  return <div className="min-h-screen flex flex-col bg-white text-[#102A43]"><Navbar /><main className="flex-1 pt-16"><ContactSection /></main><Footer /><FloatingWidgets /></div>;
+  return (
+    <PublicLayout eyebrow='Contact' title='Let’s talk about your supply.' description='Request a refill, plan a business supply, or ask for a quotation. Our local team is ready to help.'>
+      <ContactSection />
+    </PublicLayout>
+  );
 }

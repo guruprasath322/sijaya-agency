@@ -28,64 +28,25 @@ export function SafetySection() {
   ];
 
   return (
-    <section id="safety" className="py-14 sm:py-16 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100/70 text-red-700 text-xs font-semibold uppercase tracking-wider mb-3">
-            <AlertTriangle className="w-3.5 h-3.5" />
-            Safety First Protocol
+    <section id="safety" className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="site-container grid items-start gap-10 lg:grid-cols-[1.5fr_0.8fr] lg:gap-16">
+        <div>
+          <p className="eyebrow"><ShieldAlert className="h-4 w-4" />Everyday LPG care</p>
+          <h2 className="section-heading mt-4">Good habits.<br />Safer homes and workplaces.</h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-slate-600">LPG is a safe, efficient energy source when handled according to standard industry safety protocols.</p>
+          <div className="mt-8 divide-y divide-slate-200 border-y border-slate-200">
+            {safetyRules.map(({ icon: Icon, title, desc }, index) => <article key={title} className="flex items-start gap-4 py-6 sm:gap-5"><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F7F6F2] text-corporate"><Icon className="h-5 w-5" strokeWidth={1.75} /></span><div className="min-w-0"><p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Safety practice 0{index + 1}</p><h3 className="text-base font-semibold sm:text-lg">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{desc}</p></div></article>)}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            Certified LPG Safety & Emergency Awareness
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600">
-            LPG is a safe, efficient energy source when handled according to standard industry safety protocols.
-          </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
-          {safetyRules.map((rule, idx) => {
-            const Icon = rule.icon;
-            return (
-              <div
-                key={idx}
-                className="flex items-start gap-5 p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-[#102A43] mb-2">{rule.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">{rule.desc}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Emergency Notice Card */}
-        <div className="rounded-2xl bg-gradient-to-r from-red-600 to-rose-700 text-white p-6 sm:p-8 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-              <PhoneCall className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h4 className="text-lg font-bold text-white">Smell Gas or Suspect an Active Leak?</h4>
-              <p className="text-sm text-red-100">
-                Evacuate the area, avoid electrical sparks or appliances, and call our emergency support immediately.
-              </p>
-            </div>
-          </div>
-          <a
-            href="tel:[PHONE-PLACEHOLDER]"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-red-700 font-bold text-sm shadow hover:bg-red-50 transition-colors whitespace-nowrap"
-          >
-            <PhoneCall className="w-4 h-4" />
-            <span>Emergency Agency Helpline</span>
-          </a>
-        </div>
+        <aside className="rounded-2xl border border-rose-200 bg-rose-50 p-6 sm:p-8 lg:sticky lg:top-28">
+          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-red-700"><AlertTriangle className="h-6 w-6" /></span>
+          <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-red-700">Suspect a gas leak?</p>
+          <h2 className="mt-3 text-2xl font-semibold text-primary">Your safety comes first.</h2>
+          <p className="mt-4 text-sm leading-7 text-slate-700">Evacuate the area, avoid electrical sparks or appliances, and call our agency support immediately.</p>
+          <a href="tel:+919789494899" className="mt-6 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"><PhoneCall className="h-4 w-4" />Call SIJAYA Agency</a>
+          <p className="mt-3 text-center text-xs font-medium text-red-800">+91 97894 94899</p>
+        </aside>
       </div>
     </section>
   );
 }
-

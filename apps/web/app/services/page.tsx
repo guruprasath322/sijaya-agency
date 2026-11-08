@@ -1,7 +1,10 @@
-'use client';
-import React from 'react';
-import { Navbar } from '@/components/layout/Navbar';
+import { PublicLayout } from '@/components/layout/PublicLayout';
 import { ServicesSection } from '@/components/sections/ServicesSection';
-import { Footer } from '@/components/layout/Footer';
-import { FloatingWidgets } from '@/components/layout/FloatingWidgets';
-export default function ServicesPage() { return <div className="min-h-screen flex flex-col"><Navbar/><main className="flex-1 pt-16"><ServicesSection/></main><Footer/><FloatingWidgets/></div>; }
+
+export default function ServicesPage() {
+  return (
+    <PublicLayout eyebrow='Services' title='The right energy for every need.' description='From a home refill to a busy commercial kitchen, find a supply service that works for you.'>
+      <ServicesSection />
+    </PublicLayout>
+  );
+}

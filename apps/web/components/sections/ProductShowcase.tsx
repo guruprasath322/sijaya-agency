@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { ScrollReveal } from '@/components/shared/ScrollReveal';
 import Link from 'next/link';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
@@ -11,7 +12,7 @@ export function ProductShowcase() {
       name: 'Domestic LPG',
       nameTamil: 'உள்நாட்டு எல்பிஜி',
       weight: '4 kg / 12 kg',
-      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
+      description: 'Everyday cooking made simple, with compact cylinders and convenient home refills.',
       displayOrder: 1,
     },
     {
@@ -19,7 +20,7 @@ export function ProductShowcase() {
       name: 'Commercial LPG',
       nameTamil: 'வணிக எல்பிஜி',
       weight: '17 / 21 / 33 kg',
-      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
+      description: 'A steady supply for restaurant kitchens, bakeries, catering, and everyday business.',
       displayOrder: 2,
     },
     {
@@ -27,7 +28,7 @@ export function ProductShowcase() {
       name: 'Industrial LPG',
       nameTamil: 'தொழில்துறை எல்பிஜி',
       weight: '33 kg LOT / 425 kg',
-      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
+      description: 'Larger capacity options for process heating and demanding industrial operations.',
       displayOrder: 3,
     },
     {
@@ -36,37 +37,37 @@ export function ProductShowcase() {
       nameTamil: 'மொத்த எல்பிஜி (கிலோ)',
       unit: 'KG',
       weight: 'KG',
-      description: 'High-purity LPG fuel designed for steady pressure and clean combustion.',
+      description: 'A tailored supply plan for high-volume commercial and institutional requirements.',
       displayOrder: 4,
     },
   ];
 
   return (
-    <section id="products" className="py-14 sm:py-16 md:py-28 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+    <section id="products" className="py-16 sm:py-20 lg:py-24 bg-white relative">
+      <div className="site-container">
+        <div className="max-w-3xl mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
-            Product Catalogue
+            Our LPG range
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            Certified LPG Cylinders & Bulk Energy
+          <h2 className="section-heading text-[#102A43] tracking-tight">
+            The right cylinder. The right supply.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Supplied by Aegis Pure gas for instant booking or scheduled supply.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {products.map((prod) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {products.map((prod, index) => {
             return (
-            <div
+            <ScrollReveal delay={index * 0.08}
               key={prod.id}
-              className="flex flex-col justify-between rounded-2xl bg-slate-50/70 border border-slate-200/90 p-4 sm:p-6 hover:bg-white hover:border-[#176B9B]/60 hover:shadow-xl transition-all duration-300 group"
+              className="flex flex-col justify-between rounded-2xl bg-white border border-slate-200/90 p-4 sm:p-6 hover:bg-white hover:border-[#176B9B]/60 hover:shadow-lg transition-all duration-300 group"
             >
               <div>
                 {/* Visual Cylinder Graphic Container */}
-                <div className="w-full h-36 sm:h-44 rounded-xl bg-gradient-to-b from-slate-100 to-slate-200/70 flex items-center justify-center p-4 mb-5 relative overflow-hidden group-hover:from-blue-50 group-hover:to-slate-100 transition-colors">
-                  <div className="relative">
+                <div className="w-full h-36 sm:h-44 rounded-xl bg-gradient-to-b from-[#F0F5F8] to-[#E8EFF4] flex items-center justify-center p-4 mb-5 relative overflow-hidden group-hover:from-blue-50 group-hover:to-slate-100 transition-colors">
+                  <div className="relative transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:rotate-[-3deg] motion-reduce:transform-none">
                     {/* SVG Realistic Cylinder Graphic Badge */}
                     <svg width="80" height="110" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M35 12C35 9 37 8 40 8H60C63 8 65 9 65 12V22H35V12Z" fill="#DC2626" />
@@ -95,29 +96,29 @@ export function ProductShowcase() {
                   </p>
                 )}
 
-                <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 mb-4">
+                <p className="text-sm text-slate-600 leading-relaxed mb-4">
                   {prod.description || 'High-purity LPG fuel designed for steady pressure and clean combustion.'}
                 </p>
               </div>
 
               <div className="pt-4 border-t border-slate-200/80">
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
+                <div className="flex items-center justify-between flex-wrap gap-2 text-[11px] text-slate-500 mb-3">
                   <span className="flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    Weight Verified
+                    Weight verified
                   </span>
                   <span>Aegis Pure gas Supply</span>
                 </div>
 
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-lg text-xs font-bold text-[#102A43] bg-white hover:bg-[#176B9B] hover:text-white border border-slate-200 hover:border-[#176B9B] transition-all shadow-sm"
+                  className="flex items-center justify-center gap-1.5 w-full min-h-11 py-3 rounded-xl text-sm font-bold text-[#102A43] bg-[#102A43] text-white hover:bg-[#176B9B] border border-[#102A43] hover:border-[#176B9B] transition-all shadow-sm"
                 >
                   <span>Order / Request Supply</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
           );
           })}
         </div>

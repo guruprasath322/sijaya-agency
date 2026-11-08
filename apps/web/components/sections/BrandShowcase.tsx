@@ -31,14 +31,14 @@ export function BrandShowcase() {
   const displayItems = [...brands, ...brands, ...brands];
 
   return (
-    <section className="py-14 bg-slate-50 border-y border-slate-200/80 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+    <section className="py-10 bg-white border-y border-slate-200/80 overflow-hidden">
+      <div className="site-container mb-6 text-center">
         <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#176B9B] uppercase tracking-wider mb-2">
           <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          Commercial & Institutional Relationships
+          Commercial & institutional customers
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-[#102A43] tracking-tight">
-          Businesses That Trust SIJAYA Agency
+        <h2 className="text-xl sm:text-2xl font-semibold text-[#102A43] tracking-tight">
+          In good company.
         </h2>
         <p className="text-sm sm:text-base text-slate-500 max-w-2xl mx-auto mt-2">
           Building dependable supply relationships with businesses, educational institutions and commercial customers across the region.
@@ -48,15 +48,15 @@ export function BrandShowcase() {
       {/* Infinite Carousel Container */}
       <div className="relative w-full overflow-hidden group">
         {/* Left and Right Subtle Fade Gradients */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         {/* Carousel Track with CSS animation and pause on hover */}
         <div className="flex items-center gap-6 w-max carousel-track hover:[animation-play-state:paused] py-2">
           {displayItems.map((brand, index) => (
             <div
               key={`${brand.id}-${index}`}
-              className="flex items-center gap-3.5 px-6 py-4 rounded-xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-200 hover:border-[#176B9B]/40 group/card select-none"
+              aria-hidden={index >= brands.length} className="flex items-center gap-3.5 px-5 py-3 rounded-xl bg-white border border-slate-200/70 transition-all duration-200 hover:border-[#176B9B]/40 group/card select-none"
             >
               {/* Brand Logo or neutral fallback icon */}
               <div className="w-12 h-12 rounded-lg bg-white border border-slate-100 flex items-center justify-center overflow-hidden flex-shrink-0">

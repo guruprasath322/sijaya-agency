@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { ShieldCheck, Truck, Clock, Layers, Users, Award } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, ShieldCheck, Truck, Layers, Users } from 'lucide-react';
 
-export function AboutSection() {
+export function AboutSection({ priority = false }: { priority?: boolean } = {}) {
   const highlights = [
     {
       icon: ShieldCheck,
@@ -29,75 +30,28 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-14 sm:py-16 md:py-28 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Story & Mission */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-[#176B9B] text-xs font-semibold uppercase tracking-wider">
-              About SIJAYA Agency
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight leading-tight">
-              Powering Homes & Commercial Kitchens with Unwavering Reliability
-            </h2>
-
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              SIJAYA Agency supplies safe, high-purity LPG reliably to households, commercial kitchens and industries, with supply from Aegis Pure gas.
-            </p>
-
-            <p className="text-base text-slate-600 leading-relaxed">
-              We understand that an uninterrupted gas supply is essential for every home and business. Our operations track stock levels, coordinate supply schedules and record transactions transparently.
-            </p>
-
-            <div className="inline-flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white">
-                <Image src="/aegis-puregas.png" alt="Aegis Puregas logo" width={64} height={80} className="h-16 w-16 object-contain" />
-              </div>
-              <div>
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">LPG supplied by</div>
-                <div className="mt-0.5 text-base font-bold text-[#102A43]">Aegis Puregas</div>
-                <div className="text-xs text-slate-500">SIJAYA Agency supply partner</div>
-              </div>
-            </div>
-
-            {/* Metrics Mini-Grid */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-              <div className="p-3 bg-slate-50 rounded-xl">
-                <div className="text-xl font-black text-[#176B9B] sm:text-2xl">100%</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Cylinder Inspection</div>
-              </div>
-              <div className="p-3 bg-slate-50 rounded-xl">
-                <div className="text-sm font-black text-[#F59E0B] sm:text-xl">Aegis Puregas</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Supply Partner</div>
-              </div>
-              <div className="p-3 bg-slate-50 rounded-xl">
-                <div className="text-2xl font-black text-[#102A43]">24/7</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Service</div>
-              </div>
-            </div>
+    <section id="about" className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="site-container grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="relative">
+          <div className="relative aspect-[5/4] overflow-hidden rounded-[1.5rem] bg-slate-100">
+            <Image src="/hero-depot.png" alt="LPG cylinders and distribution fleet at a gas depot" fill priority={priority} sizes="(max-width: 1023px) 100vw, 50vw" className="object-cover object-left" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+            <p className="absolute bottom-7 left-7 right-7 text-2xl font-semibold leading-tight text-white sm:text-3xl">Local roots.<br />Dependable service.</p>
           </div>
-
-          {/* Right Column: Visual Feature Grid */}
-          <div className="lg:col-span-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {highlights.map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#176B9B]/50 hover:bg-white hover:shadow-md transition-all duration-200"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-blue-100/60 text-[#176B9B] flex items-center justify-center mb-4">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-base font-bold text-[#102A43] mb-2">{item.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="relative mx-5 -mt-8 flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-[#F7F6F2] p-5 shadow-sm sm:mx-8 sm:p-6">
+            <div><p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-slate-500">Our supply partner</p><p className="mt-1 text-lg font-semibold text-primary">Aegis Puregas</p><p className="mt-1 text-xs text-slate-500">High-purity LPG. Consistent performance.</p></div>
+            <Image src="/aegis-puregas.png" alt="Aegis Puregas logo" width={52} height={65} className="h-16 w-auto shrink-0 object-contain" />
           </div>
+        </div>
+        <div>
+          <p className="eyebrow"><span className="h-px w-7 bg-accent" />The SIJAYA promise</p>
+          <h2 className="section-heading mt-5">More than a cylinder.<br />A commitment.</h2>
+          <p className="mt-5 text-base leading-7 text-slate-600">SIJAYA Agency supplies safe, high-purity LPG to households, commercial kitchens, and industries, with supply from Aegis Puregas. We believe a reliable energy partner should be easy to reach and ready to help.</p>
+          <p className="mt-4 text-sm leading-7 text-slate-500">Our team tracks stock, coordinates deliveries, and records transactions transparently, so you can focus on the day ahead.</p>
+          <div className="mt-7 divide-y divide-slate-100 border-y border-slate-100">
+            {highlights.map(({ icon: Icon, title, description }) => <div key={title} className="flex items-start gap-4 py-4"><Icon className="mt-0.5 h-5 w-5 shrink-0 text-corporate" strokeWidth={1.75} /><div><h3 className="text-sm font-semibold">{title}</h3><p className="mt-1 text-xs leading-6 text-slate-500">{description}</p></div></div>)}
+          </div>
+          <Link href="/contact" className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-corporate">Get to know your local team<ArrowUpRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </section>

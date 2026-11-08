@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CheckCircle2, Mail, MapPin, MessageSquare, Phone, Send } from 'lucide-react';
+import { CheckCircle2, Loader2, ShieldCheck, Mail, MapPin, MessageSquare, Phone, Send } from 'lucide-react';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -18,6 +18,7 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     setLoading(true);
     setSubmitError('');
     try {
@@ -41,30 +42,31 @@ export function ContactSection() {
 
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error('Form submission failed');
-      setLoading(false);
       setSubmitted(true);
       setFormData({ name: '', phone: '', email: '', category: 'Domestic LPG', message: '' });
       setWebsite('');
     } catch {
-      setSubmitError('We could not save your request right now. Please call or WhatsApp SIJAYA Agency.');
+      setSubmitError('We could not send your request right now. Please call or WhatsApp SIJAYA Agency.');
+    } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="bg-white px-4 py-14 text-[#102A43] sm:py-16 md:py-28">
-      <div className="mx-auto max-w-7xl">
-        <header className="mb-8 text-center sm:mb-10">
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Request Gas Supply or Quotation</h1>
+    <section id="contact" className="bg-white py-16 text-primary sm:py-20 lg:py-24">
+      <div className="site-container">
+        <header className="mb-8 text-center sm:mb-12">
+          <p className="eyebrow mb-3">A simple request. A personal response.</p>
+          <h2 className="section-heading">How can we help you today?</h2>
           <p className="mt-4 text-base text-slate-600 sm:text-lg">
             Fill in your details and requirements. Our distribution officer will get in touch with you promptly.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 items-stretch gap-5 sm:gap-8 lg:grid-cols-12">
+        <div className="grid grid-cols-1 items-start gap-6 sm:gap-10 lg:grid-cols-12">
           <aside className="lg:col-span-5">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <h2 className="mb-5 text-xl font-bold">Agency Contact Details</h2>
+            <div className="rounded-2xl border border-slate-200 bg-[#F3F7FA] p-6 sm:p-8">
+              <h2 className="mb-6 text-xl font-bold">Agency Contact Details</h2>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#176B9B]" />
@@ -104,9 +106,9 @@ export function ContactSection() {
 
           </aside>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-md sm:p-8 lg:col-span-7 xl:p-10">
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_8px_40px_-16px_rgba(16,42,67,0.15)] sm:p-8 lg:col-span-7 xl:p-10">
           {submitted ? (
-            <div className="flex items-start gap-4 rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-emerald-900">
+            <div role="status" className="flex items-start gap-4 rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-emerald-900">
               <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-600" />
               <div>
                 <h2 className="font-bold">Request received</h2>
@@ -115,29 +117,30 @@ export function ContactSection() {
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} aria-busy={loading} className="space-y-5">
+              <div className="border-b border-slate-100 pb-5"><h3 className="text-lg font-semibold">Your supply request</h3><p className="mt-1 text-sm text-slate-500">Fields marked * are required.</p></div>
               <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
                 <label>Leave this field blank<input autoComplete="off" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
               </div>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Your Full Name *</label>
-                  <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="e.g. Ramesh Kumar" className="input-field" />
+                  <label htmlFor="request-name" className="mb-2 block text-sm font-medium text-slate-700">Your Full Name *</label>
+                  <input id="request-name" name="name" autoComplete="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="e.g. Ramesh Kumar" className="input-field" />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Mobile Phone Number *</label>
-                  <input type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="e.g. 98765 43210" className="input-field" />
+                  <label htmlFor="request-phone" className="mb-2 block text-sm font-medium text-slate-700">Mobile Phone Number *</label>
+                  <input id="request-phone" name="phone" autoComplete="tel" type="tel" required value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="e.g. 98765 43210" className="input-field" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Email Address (Optional)</label>
-                  <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="e.g. name@business.com" className="input-field" />
+                  <label htmlFor="request-email" className="mb-2 block text-sm font-medium text-slate-700">Email Address (Optional)</label>
+                  <input id="request-email" name="email" autoComplete="email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="e.g. name@business.com" className="input-field" />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Requirement Type *</label>
-                  <select value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="input-field">
+                  <label htmlFor="request-category" className="mb-2 block text-sm font-medium text-slate-700">Requirement Type *</label>
+                  <select id="request-category" name="category" value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} className="input-field">
                     <option value="Domestic LPG">Domestic LPG (4 kg / 12 kg)</option>
                     <option value="Commercial LPG">Commercial LPG (17 kg / 21 kg / 33 kg)</option>
                     <option value="Industrial LPG">Industrial LPG (33 kg LOT / 425 kg)</option>
@@ -149,15 +152,16 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-700">Your Delivery Address &amp; Specific Requirements *</label>
-                <textarea required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Enter your complete address, street, landmark, pincode and specific requirements..." className="input-field resize-y" />
+                <label htmlFor="request-message" className="mb-2 block text-sm font-medium text-slate-700">Your Delivery Address &amp; Specific Requirements *</label>
+                <textarea id="request-message" name="message" autoComplete="street-address" required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Enter your complete address, street, landmark, pincode and specific requirements..." className="input-field resize-y" />
               </div>
 
               {submitError && <p role="alert" className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">{submitError}</p>}
 
-              <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#176B9B] px-6 py-4 text-base font-bold text-white shadow-md transition hover:bg-[#102A43] disabled:opacity-50">
-                {loading ? 'Sending Request...' : <><Send className="h-5 w-5" /><span>Send Request</span></>}
+              <button type="submit" disabled={loading} className="btn-primary w-full py-3.5 text-sm disabled:opacity-60">
+                {loading ? <><Loader2 className="h-4 w-4 animate-spin" /><span>Sending request…</span></> : <><Send className="h-5 w-5" /><span>Send Request</span></>}
               </button>
+              <p className="flex items-center justify-center gap-2 text-center text-xs text-slate-500"><ShieldCheck className="h-4 w-4 shrink-0" />Your details are only used to respond to your enquiry.</p>
             </form>
           )}
           </div>
@@ -165,7 +169,7 @@ export function ContactSection() {
 
         <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:mt-8">
           <iframe title="Map showing SIJAYA Agency in Vellakoil" src="https://maps.google.com/maps?q=10.9662657%2C77.7001181&z=16&output=embed" className="block h-[280px] w-full sm:h-[420px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-          <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-[#176B9B] hover:bg-blue-50 transition-colors">
+          <a href="https://maps.app.goo.gl/NKZYsDofKWEML7aVA" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 px-4 py-3 flex-wrap text-sm font-semibold text-[#176B9B] hover:bg-blue-50 transition-colors">
             <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4" /> SIJAYA Agency · Vellakoil</span>
             <span>Open directions →</span>
           </a>

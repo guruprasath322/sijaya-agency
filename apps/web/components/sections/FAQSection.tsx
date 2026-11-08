@@ -13,11 +13,11 @@ export function FAQSection() {
     },
     {
       q: 'Do you supply commercial LPG for restaurants and hotels?',
-      a: 'Yes. We supply 19 kg commercial grade cylinders and multi-cylinder manifold systems tailored for restaurants, hotels, mess halls, bakeries, and catering businesses with priority dispatch.',
+      a: 'Yes. We supply 17 kg, 21 kg, and 33 kg commercial grade cylinders and multi-cylinder manifold systems tailored for restaurants, hotels, mess halls, bakeries, and catering businesses with priority dispatch.',
     },
     {
       q: 'Can commercial establishments request recurring supply arrangements?',
-      a: 'Absolutely. We provide scheduled recurring supply agreements (weekly, bi-weekly, or custom intervals). Once set up in your portal, our team schedules recurring dispatches without needing repetitive bookings.',
+      a: 'Absolutely. We provide scheduled recurring supply agreements (weekly, bi-weekly, or custom intervals). Once arranged with our team, we schedules recurring dispatches without needing repetitive bookings.',
     },
     {
       q: 'How can I request bulk LPG supply?',
@@ -30,36 +30,38 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-14 sm:py-16 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-16">
+    <section className="py-16 sm:py-20 lg:py-24 bg-slate-50 relative border-t border-slate-200/80">
+      <div className="site-container grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="max-w-sm lg:sticky lg:top-28">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/60 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
             <HelpCircle className="w-3.5 h-3.5" />
             Frequently Asked Questions
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            Everything You Need to Know
+          <h2 className="section-heading text-[#102A43] tracking-tight">
+            A little clarity goes a long way.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
-            Answers to common questions about LPG delivery, commercial orders, and account management.
+            Your questions about LPG supply, answered. Need something else? Our team is a call away.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIdx === index;
             return (
               <div
                 key={index}
-                className="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden transition-all duration-200"
+                className="rounded-2xl bg-white border border-slate-200 overflow-hidden transition-all duration-200"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between p-5 sm:p-6 text-left font-bold text-[#102A43] hover:text-[#176B9B] transition-colors focus:outline-none"
+                  className="w-full flex items-center justify-between p-5 sm:p-6 text-left font-bold text-[#102A43] hover:text-[#176B9B] transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-corporate"
                   aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${index}`}
+                  id={`faq-question-${index}`}
                 >
-                  <span className="text-base sm:text-lg pr-4">{faq.q}</span>
+                  <span className="text-sm sm:text-base pr-4">{faq.q}</span>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180 text-[#176B9B]' : ''
@@ -68,7 +70,7 @@ export function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-4 animate-in fade-in duration-200">
+                  <div id={`faq-panel-${index}`} role="region" aria-labelledby={`faq-question-${index}`} className="px-5 pb-6 sm:px-6 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-4 animate-in fade-in duration-200">
                     {faq.a}
                   </div>
                 )}

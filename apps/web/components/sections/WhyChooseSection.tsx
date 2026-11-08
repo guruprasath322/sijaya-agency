@@ -39,12 +39,12 @@ export function WhyChooseSection() {
 
   return (
     <section className="py-20 md:py-28 bg-slate-50 relative border-t border-slate-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/60 text-[#176B9B] text-xs font-semibold uppercase tracking-wider mb-3">
             The SIJAYA Agency Standard
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
+          <h2 className="section-heading text-[#102A43] tracking-tight">
             Why Homes and Enterprises Choose SIJAYA Agency
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600">
